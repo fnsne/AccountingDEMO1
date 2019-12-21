@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Accounting.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Accounting.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/TestAccounting.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/TestAccounting.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
@@ -252,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576936448216</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="整理">
+      <created>1576937380972</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576937380972</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -262,37 +270,38 @@
     <MESSAGE value="add test cross with the same month different year." />
     <MESSAGE value="extract method : getBudgetsWithin(start, end)" />
     <MESSAGE value="extract method : getMonthBudgetOfInputDate" />
-    <option name="LAST_COMMIT_MESSAGE" value="extract method : getMonthBudgetOfInputDate" />
+    <MESSAGE value="整理" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="92" key="#com.intellij.ide.util.MemberChooser" timestamp="1576915487989">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
     <state x="440" y="92" key="#com.intellij.ide.util.MemberChooser/0.40.1280.680@0.40.1280.680" timestamp="1576915487989" />
-    <state x="81" y="40" key="CommitChangelistDialog2" timestamp="1576936447317">
+    <state x="81" y="40" key="CommitChangelistDialog2" timestamp="1576937380102">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state x="81" y="40" key="CommitChangelistDialog2/0.40.1280.680@0.40.1280.680" timestamp="1576936447317" />
-    <state width="1239" height="314" key="GridCell.Tab.0.bottom" timestamp="1576937372657">
+    <state x="81" y="40" key="CommitChangelistDialog2/0.40.1280.680@0.40.1280.680" timestamp="1576937380102" />
+    <state width="1239" height="314" key="GridCell.Tab.0.bottom" timestamp="1576938527431">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.bottom/0.40.1280.680@0.40.1280.680" timestamp="1576937372657" />
-    <state width="1239" height="314" key="GridCell.Tab.0.center" timestamp="1576937372656">
+    <state width="1239" height="314" key="GridCell.Tab.0.bottom/0.40.1280.680@0.40.1280.680" timestamp="1576938527431" />
+    <state width="1239" height="314" key="GridCell.Tab.0.center" timestamp="1576938527430">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.center/0.40.1280.680@0.40.1280.680" timestamp="1576937372656" />
-    <state width="1239" height="314" key="GridCell.Tab.0.left" timestamp="1576937372656">
+    <state width="1239" height="314" key="GridCell.Tab.0.center/0.40.1280.680@0.40.1280.680" timestamp="1576938527430" />
+    <state width="1239" height="314" key="GridCell.Tab.0.left" timestamp="1576938527430">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.left/0.40.1280.680@0.40.1280.680" timestamp="1576937372656" />
-    <state width="1239" height="314" key="GridCell.Tab.0.right" timestamp="1576937372656">
+    <state width="1239" height="314" key="GridCell.Tab.0.left/0.40.1280.680@0.40.1280.680" timestamp="1576938527430" />
+    <state width="1239" height="314" key="GridCell.Tab.0.right" timestamp="1576938527430">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.right/0.40.1280.680@0.40.1280.680" timestamp="1576937372656" />
-    <state x="437" y="316" key="ReplaceDuplicatesPrompt" timestamp="1576936197080">
+    <state width="1239" height="314" key="GridCell.Tab.0.right/0.40.1280.680@0.40.1280.680" timestamp="1576938527430" />
+    <state x="437" y="316" key="ReplaceDuplicatesPrompt" timestamp="1576938577502">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state x="437" y="316" key="ReplaceDuplicatesPrompt/0.40.1280.680@0.40.1280.680" timestamp="1576936197080" />
+    <state x="437" y="316" key="ReplaceDuplicatesPrompt/0.40.1280.680@0.40.1280.680" timestamp="1576938577502" />
     <state x="121" y="40" key="SettingsEditor" timestamp="1576915113398">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
@@ -301,10 +310,10 @@
       <screen x="0" y="40" width="1280" height="680" />
     </state>
     <state x="251" y="276" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.40.1280.680@0.40.1280.680" timestamp="1576915100308" />
-    <state x="378" y="229" width="608" height="491" key="extract.method.dialog" timestamp="1576936999296">
+    <state x="378" y="229" width="608" height="491" key="extract.method.dialog" timestamp="1576938571632">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state x="378" y="229" width="608" height="491" key="extract.method.dialog/0.40.1280.680@0.40.1280.680" timestamp="1576936999296" />
+    <state x="378" y="229" width="608" height="491" key="extract.method.dialog/0.40.1280.680@0.40.1280.680" timestamp="1576938571632" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1576934966038">
       <screen x="0" y="40" width="1280" height="680" />
     </state>

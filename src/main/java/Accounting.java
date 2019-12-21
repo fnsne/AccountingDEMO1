@@ -19,12 +19,9 @@ public class Accounting {
         if (start.getYear() == end.getYear() && start.getMonth() == end.getMonth()) {
             int beginDay = start.getDayOfMonth();
             int endDay = end.getDayOfMonth();
-            int monthDays = start.lengthOfMonth();
 
-            double totalBudget = totalBudgets.stream().mapToDouble(budget -> {
-                int diff = endDay - beginDay + 1;
-                return budget.amount * (diff) / monthDays;
-            }).sum();
+            int monthDays = start.lengthOfMonth();
+            double totalBudget = calculateBudget(totalBudgets, monthDays, endDay - beginDay + 1);
 
             return totalBudget;
         } else {
@@ -34,22 +31,16 @@ public class Accounting {
 
             int beginDay = start.getDayOfMonth();
             int endDay = end.getDayOfMonth();
-            int monthDays = start.lengthOfMonth();
             int endDayOfFirstMonth = start.lengthOfMonth();
 
-            double startMonthAmount = startMonthBudget.stream().mapToDouble(budget -> {
-                int diff = endDayOfFirstMonth - beginDay + 1;
-                return budget.amount * (diff) / monthDays;
-            }).sum();
+            int monthDays = start.lengthOfMonth();
+            double startMonthAmount = calculateBudget(startMonthBudget, monthDays, endDayOfFirstMonth - beginDay + 1);
 
 
             //last month
             List<Budget> endMonthBudget = getMonthBudgetOfInputDate(totalBudgets, end);
 
-            double endMonthAmount = endMonthBudget.stream().mapToDouble(budget -> {
-                int diff = endDay;
-                return budget.amount * (diff) / end.lengthOfMonth();
-            }).sum();
+            double endMonthAmount = calculateBudget(endMonthBudget, end.lengthOfMonth(), endDay);
 
             // middle
             List<Budget> middleBudgets = totalBudgets;
@@ -61,6 +52,13 @@ public class Accounting {
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
 
+    }
+
+    private double calculateBudget(List<Budget> totalBudgets, int monthDays, int i) {
+        return totalBudgets.stream().mapToDouble(budget -> {
+            int diff = i;
+            return budget.amount * (diff) / monthDays;
+        }).sum();
     }
 
     private List<Budget> getMonthBudgetOfInputDate(List<Budget> totalBudgets, LocalDate start) {
