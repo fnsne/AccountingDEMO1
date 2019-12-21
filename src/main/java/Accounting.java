@@ -16,37 +16,49 @@ public class Accounting {
     public double QueryBudget(LocalDate start, LocalDate end) {
         List<Budget> totalBudgets = getBudgetWithin(start, end);
 
-        if (start.getYear() == end.getYear() && start.getMonth() == end.getMonth()) {
-            return calculateBudget(
-                    totalBudgets,
-                    start.lengthOfMonth(),
-                    end.getDayOfMonth() - start.getDayOfMonth() + 1
-            );
+        if (InSameMonth(start, end)) {
+            return sameMonthBudget(start, end, totalBudgets);
         } else {
             //firstMonth
+            List<Budget> getFirstMonthBudget = getMonthBudgetOfInputDate(totalBudgets, start);
+            int firstMonthEffectiveDays = start.lengthOfMonth() - start.getDayOfMonth() + 1;
             double startMonthAmount = calculateBudget(
-                    getMonthBudgetOfInputDate(totalBudgets, start),
+                    getFirstMonthBudget,
                     start.lengthOfMonth(),
-                    start.lengthOfMonth() - start.getDayOfMonth() + 1
+                    firstMonthEffectiveDays
             );
 
             //last month
+            List<Budget> getLastMonthBudget = getMonthBudgetOfInputDate(totalBudgets, end);
+            int lastMonthEffectiveDays = end.getDayOfMonth();
             double endMonthAmount = calculateBudget(
-                    getMonthBudgetOfInputDate(totalBudgets, end),
+                    getLastMonthBudget,
                     end.lengthOfMonth(),
-                    end.getDayOfMonth()
+                    lastMonthEffectiveDays
             );
 
             // middle
             List<Budget> middleBudgets = totalBudgets;
-            middleBudgets.removeAll(getMonthBudgetOfInputDate(totalBudgets, start));
-            middleBudgets.removeAll(getMonthBudgetOfInputDate(totalBudgets, end));
+            middleBudgets.removeAll(getFirstMonthBudget);
+            middleBudgets.removeAll(getLastMonthBudget);
 
             double middleMonthAmount = middleBudgets.stream().mapToDouble(budget -> budget.amount).sum();
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
 
+    }
+
+    private double sameMonthBudget(LocalDate start, LocalDate end, List<Budget> totalBudgets) {
+        return calculateBudget(
+                totalBudgets,
+                start.lengthOfMonth(),
+                end.getDayOfMonth() - start.getDayOfMonth() + 1
+        );
+    }
+
+    private boolean InSameMonth(LocalDate start, LocalDate end) {
+        return start.getYear() == end.getYear() && start.getMonth() == end.getMonth();
     }
 
     private double calculateBudget(List<Budget> totalBudgets, int monthDays, int effectiveDays) {
