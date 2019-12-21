@@ -47,6 +47,7 @@ public class Accounting {
             }).sum();
 
 
+
             //last month
             List<Budget> endMonthBudget = totalBudgets.stream().filter(bd -> {
                 YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
@@ -59,7 +60,14 @@ public class Accounting {
                 return budget.amount * (diff) / end.lengthOfMonth();
             }).sum();
 
-            return startMonthAmount + endMonthAmount;
+            // middle
+            List<Budget> middleBudgets = totalBudgets;
+            middleBudgets.removeAll(startMonthBudget);
+            middleBudgets.removeAll(endMonthBudget);
+
+            double middleMonthAmount = middleBudgets.stream().mapToDouble(budget -> budget.amount ).sum();
+
+            return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
 
     }
