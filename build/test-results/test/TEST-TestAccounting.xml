@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestAccounting" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-21T13:12:58" hostname="LAPTOP-N4NVF0EL" time="0.034">
+<testsuite name="TestAccounting" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-21T13:20:18" hostname="LAPTOP-N4NVF0EL" time="0.039">
   <properties/>
-  <testcase name="testQueryCrossYear" classname="TestAccounting" time="0.034"/>
+  <testcase name="testQueryCrossSameMonthOfDifferentYear" classname="TestAccounting" time="0.039"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

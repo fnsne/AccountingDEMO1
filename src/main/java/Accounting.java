@@ -26,7 +26,7 @@ public class Accounting {
             return (d.equals(startYM) || d.isAfter(startYM)) && (d.equals(endYM) || d.isBefore(endYM));
         }).collect(Collectors.toList());
 
-        if (start.getMonth() == end.getMonth()) {
+        if (start.getYear() == end.getYear() && start.getMonth() == end.getMonth()) {
             double totalBudget = totalBudgets.stream().mapToDouble(budget -> {
                 int diff = end.getDayOfMonth() - start.getDayOfMonth() + 1;
                 return budget.amount * (diff) / start.lengthOfMonth();
@@ -47,7 +47,6 @@ public class Accounting {
             }).sum();
 
 
-
             //last month
             List<Budget> endMonthBudget = totalBudgets.stream().filter(bd -> {
                 YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
@@ -65,7 +64,7 @@ public class Accounting {
             middleBudgets.removeAll(startMonthBudget);
             middleBudgets.removeAll(endMonthBudget);
 
-            double middleMonthAmount = middleBudgets.stream().mapToDouble(budget -> budget.amount ).sum();
+            double middleMonthAmount = middleBudgets.stream().mapToDouble(budget -> budget.amount).sum();
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }

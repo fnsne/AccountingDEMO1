@@ -56,6 +56,7 @@ public class TestAccounting {
         LocalDate end = LocalDate.of(2019, 1, 15);
         assertEquals(15.0, accounting.QueryBudget(start, end));
     }
+
     @Test
     public void testQueryPartialCrossTwoMonth() {
         Accounting accounting = new Accounting(db);
@@ -83,6 +84,7 @@ public class TestAccounting {
         LocalDate end = LocalDate.of(2019, 3, 1);
         assertEquals(60.0, accounting.QueryBudget(start, end));
     }
+
     @Test
     public void testQueryPartialCrossMoreThanTwoMonthWithLostOneMonth() {
         Accounting accounting = new Accounting(db);
@@ -96,6 +98,7 @@ public class TestAccounting {
         LocalDate end = LocalDate.of(2019, 4, 1);
         assertEquals(95.0, accounting.QueryBudget(start, end));
     }
+
     @Test
     public void testQueryCrossOneYear() {
         Accounting accounting = new Accounting(db);
@@ -109,6 +112,21 @@ public class TestAccounting {
         LocalDate start = LocalDate.of(2019, 8, 31);
         LocalDate end = LocalDate.of(2020, 1, 1);
         assertEquals(154.0, accounting.QueryBudget(start, end));
+    }
+
+    @Test
+    public void testQueryCrossSameMonthOfDifferentYear() {
+        Accounting accounting = new Accounting(db);
+        List<Budget> data = new ArrayList<Budget>();
+        data.add(new Budget("201908", 31));
+        data.add(new Budget("201910", 93));
+        data.add(new Budget("201912", 56));
+        data.add(new Budget("202008", 124));
+
+        when(db.GetAll()).thenReturn(data);
+        LocalDate start = LocalDate.of(2019, 8, 30);
+        LocalDate end = LocalDate.of(2020, 8, 4);
+        assertEquals(167.0, accounting.QueryBudget(start, end));
     }
 
 }
