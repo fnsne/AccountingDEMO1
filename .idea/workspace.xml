@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="46b718ce-56c6-485c-9352-508961e8010d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1VHdioQjzluNMH4HGq8QMFw2OZ1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\watas\Documents\code\java\JoeyCourse\TDD\AccountingDEMO1\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\watas\Documents\code\java\JoeyCourse\TDD\AccountingDEMO1\src\main" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.TestAccounting.testQuerySingleMonth">
+    <configuration name="AccountingDEMO1 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAccounting.testQuerySingleMonth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestAccounting.testQuerySingleMonth&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAccounting.testQurrySingleMonth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestAccounting.testQurrySingleMonth&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.TestAccounting.testQuerySingleMonth" />
+        <item itemvalue="Gradle.TestAccounting.testQurrySingleMonth" />
+        <item itemvalue="Gradle.AccountingDEMO1 [dependencies]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46b718ce-56c6-485c-9352-508961e8010d" name="Default Changelist" comment="" />
+      <created>1576914083582</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576914083582</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="440" y="92" key="#com.intellij.ide.util.MemberChooser" timestamp="1576915487989">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state x="440" y="92" key="#com.intellij.ide.util.MemberChooser/0.40.1280.680@0.40.1280.680" timestamp="1576915487989" />
+    <state width="1239" height="314" key="GridCell.Tab.0.bottom" timestamp="1576916895816">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state width="1239" height="314" key="GridCell.Tab.0.bottom/0.40.1280.680@0.40.1280.680" timestamp="1576916895816" />
+    <state width="1239" height="314" key="GridCell.Tab.0.center" timestamp="1576916895815">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state width="1239" height="314" key="GridCell.Tab.0.center/0.40.1280.680@0.40.1280.680" timestamp="1576916895815" />
+    <state width="1239" height="314" key="GridCell.Tab.0.left" timestamp="1576916895815">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state width="1239" height="314" key="GridCell.Tab.0.left/0.40.1280.680@0.40.1280.680" timestamp="1576916895815" />
+    <state width="1239" height="314" key="GridCell.Tab.0.right" timestamp="1576916895816">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state width="1239" height="314" key="GridCell.Tab.0.right/0.40.1280.680@0.40.1280.680" timestamp="1576916895816" />
+    <state x="121" y="40" key="SettingsEditor" timestamp="1576915113398">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state x="121" y="40" key="SettingsEditor/0.40.1280.680@0.40.1280.680" timestamp="1576915113398" />
+    <state x="251" y="276" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1576915100308">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state x="251" y="276" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.40.1280.680@0.40.1280.680" timestamp="1576915100308" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1576916392702">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.40.1280.680@0.40.1280.680" timestamp="1576916392702" />
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1576915901349">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup/0.40.1280.680@0.40.1280.680" timestamp="1576915901349" />
+  </component>
+</project>
