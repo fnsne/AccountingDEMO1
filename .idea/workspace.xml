@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46b718ce-56c6-485c-9352-508961e8010d" name="Default Changelist" comment="" />
+    <list default="true" id="46b718ce-56c6-485c-9352-508961e8010d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Accounting.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Accounting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/TestAccounting.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/TestAccounting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/TestAccounting.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/TestAccounting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-TestAccounting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-TestAccounting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Accounting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Accounting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestAccounting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestAccounting.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +34,16 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -19,7 +51,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1VHdioQjzluNMH4HGq8QMFw2OZ1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -31,6 +67,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -44,24 +81,85 @@
       <recent name="C:\Users\watas\Documents\code\java\JoeyCourse\TDD\AccountingDEMO1\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TestAccounting.testQuerySingleMonth">
-    <configuration name="AccountingDEMO1 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.TestAccounting">
+    <configuration name="TestAccounting" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--tests &quot;TestAccounting&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value=":cleanTest" />
+            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAccounting.testQueryCrossMonth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestAccounting.testQueryCrossMonth&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAccounting.testQueryPartialCrossTwoMonth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestAccounting.testQueryPartialCrossTwoMonth&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAccounting.testQueryPartialSingleMonth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;TestAccounting.testQueryPartialSingleMonth&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="TestAccounting.testQuerySingleMonth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -84,31 +182,13 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestAccounting.testQurrySingleMonth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;TestAccounting.testQurrySingleMonth&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestAccounting" />
+        <item itemvalue="Gradle.TestAccounting.testQueryPartialCrossTwoMonth" />
+        <item itemvalue="Gradle.TestAccounting.testQueryPartialSingleMonth" />
+        <item itemvalue="Gradle.TestAccounting.testQueryCrossMonth" />
         <item itemvalue="Gradle.TestAccounting.testQuerySingleMonth" />
-        <item itemvalue="Gradle.TestAccounting.testQurrySingleMonth" />
-        <item itemvalue="Gradle.AccountingDEMO1 [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -142,22 +222,22 @@
       <screen x="0" y="40" width="1280" height="680" />
     </state>
     <state x="440" y="92" key="#com.intellij.ide.util.MemberChooser/0.40.1280.680@0.40.1280.680" timestamp="1576915487989" />
-    <state width="1239" height="314" key="GridCell.Tab.0.bottom" timestamp="1576916895816">
+    <state width="1239" height="314" key="GridCell.Tab.0.bottom" timestamp="1576920547767">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.bottom/0.40.1280.680@0.40.1280.680" timestamp="1576916895816" />
-    <state width="1239" height="314" key="GridCell.Tab.0.center" timestamp="1576916895815">
+    <state width="1239" height="314" key="GridCell.Tab.0.bottom/0.40.1280.680@0.40.1280.680" timestamp="1576920547767" />
+    <state width="1239" height="314" key="GridCell.Tab.0.center" timestamp="1576920547765">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.center/0.40.1280.680@0.40.1280.680" timestamp="1576916895815" />
-    <state width="1239" height="314" key="GridCell.Tab.0.left" timestamp="1576916895815">
+    <state width="1239" height="314" key="GridCell.Tab.0.center/0.40.1280.680@0.40.1280.680" timestamp="1576920547765" />
+    <state width="1239" height="314" key="GridCell.Tab.0.left" timestamp="1576920547765">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.left/0.40.1280.680@0.40.1280.680" timestamp="1576916895815" />
-    <state width="1239" height="314" key="GridCell.Tab.0.right" timestamp="1576916895816">
+    <state width="1239" height="314" key="GridCell.Tab.0.left/0.40.1280.680@0.40.1280.680" timestamp="1576920547765" />
+    <state width="1239" height="314" key="GridCell.Tab.0.right" timestamp="1576920547767">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.right/0.40.1280.680@0.40.1280.680" timestamp="1576916895816" />
+    <state width="1239" height="314" key="GridCell.Tab.0.right/0.40.1280.680@0.40.1280.680" timestamp="1576920547767" />
     <state x="121" y="40" key="SettingsEditor" timestamp="1576915113398">
       <screen x="0" y="40" width="1280" height="680" />
     </state>

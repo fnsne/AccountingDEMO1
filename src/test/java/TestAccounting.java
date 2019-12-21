@@ -43,4 +43,31 @@ public class TestAccounting {
         assertEquals(30.0, accounting.QueryBudget(start, end));
     }
 
+    @Test
+    public void testQueryPartialSingleMonth() {
+        Accounting accounting = new Accounting(db);
+        List<Budget> data = new ArrayList<Budget>();
+        data.add(new Budget("201901", 31));
+        data.add(new Budget("201903", 50));
+        data.add(new Budget("201902", 20));
+
+        when(db.GetAll()).thenReturn(data);
+        LocalDate start = LocalDate.of(2019, 1, 1);
+        LocalDate end = LocalDate.of(2019, 1, 15);
+        assertEquals(15.0, accounting.QueryBudget(start, end));
+    }
+    @Test
+    public void testQueryPartialCrossTwoMonth() {
+        Accounting accounting = new Accounting(db);
+        List<Budget> data = new ArrayList<Budget>();
+        data.add(new Budget("201901", 31));
+        data.add(new Budget("201903", 50));
+        data.add(new Budget("201902", 56));
+
+        when(db.GetAll()).thenReturn(data);
+        LocalDate start = LocalDate.of(2019, 1, 31);
+        LocalDate end = LocalDate.of(2019, 2, 1);
+        assertEquals(3.0, accounting.QueryBudget(start, end));
+    }
+
 }
