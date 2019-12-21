@@ -18,22 +18,29 @@ public class Accounting {
 
         if (start.getYear() == end.getYear() && start.getMonth() == end.getMonth()) {
             return calculateBudget(
-                    totalBudgets, start.lengthOfMonth(), end.getDayOfMonth() - start.getDayOfMonth() + 1);
+                    totalBudgets,
+                    start.lengthOfMonth(),
+                    end.getDayOfMonth() - start.getDayOfMonth() + 1
+            );
         } else {
             //firstMonth
-            List<Budget> startMonthBudget = getMonthBudgetOfInputDate(totalBudgets, start);
-            double startMonthAmount = calculateBudget
-                    (startMonthBudget, start.lengthOfMonth(), start.lengthOfMonth() - start.getDayOfMonth() + 1);
+            double startMonthAmount = calculateBudget(
+                    getMonthBudgetOfInputDate(totalBudgets, start),
+                    start.lengthOfMonth(),
+                    start.lengthOfMonth() - start.getDayOfMonth() + 1
+            );
 
             //last month
-            List<Budget> endMonthBudget = getMonthBudgetOfInputDate(totalBudgets, end);
             double endMonthAmount = calculateBudget(
-                    endMonthBudget, end.lengthOfMonth(), end.getDayOfMonth());
+                    getMonthBudgetOfInputDate(totalBudgets, end),
+                    end.lengthOfMonth(),
+                    end.getDayOfMonth()
+            );
 
             // middle
             List<Budget> middleBudgets = totalBudgets;
-            middleBudgets.removeAll(startMonthBudget);
-            middleBudgets.removeAll(endMonthBudget);
+            middleBudgets.removeAll(getMonthBudgetOfInputDate(totalBudgets, start));
+            middleBudgets.removeAll(getMonthBudgetOfInputDate(totalBudgets, end));
 
             double middleMonthAmount = middleBudgets.stream().mapToDouble(budget -> budget.amount).sum();
 
@@ -42,9 +49,9 @@ public class Accounting {
 
     }
 
-    private double calculateBudget(List<Budget> totalBudgets, int monthDays, int i) {
+    private double calculateBudget(List<Budget> totalBudgets, int monthDays, int effectiveDays) {
         return totalBudgets.stream().mapToDouble(budget -> {
-            int diff = i;
+            int diff = effectiveDays;
             return budget.amount * (diff) / monthDays;
         }).sum();
     }
