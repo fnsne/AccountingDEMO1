@@ -17,30 +17,18 @@ public class Accounting {
         List<Budget> totalBudgets = getBudgetWithin(start, end);
 
         if (start.getYear() == end.getYear() && start.getMonth() == end.getMonth()) {
-            int beginDay = start.getDayOfMonth();
-            int endDay = end.getDayOfMonth();
-
-            int monthDays = start.lengthOfMonth();
-            double totalBudget = calculateBudget(totalBudgets, monthDays, endDay - beginDay + 1);
-
-            return totalBudget;
+            return calculateBudget(
+                    totalBudgets, start.lengthOfMonth(), end.getDayOfMonth() - start.getDayOfMonth() + 1);
         } else {
-
             //firstMonth
             List<Budget> startMonthBudget = getMonthBudgetOfInputDate(totalBudgets, start);
-
-            int beginDay = start.getDayOfMonth();
-            int endDay = end.getDayOfMonth();
-            int endDayOfFirstMonth = start.lengthOfMonth();
-
-            int monthDays = start.lengthOfMonth();
-            double startMonthAmount = calculateBudget(startMonthBudget, monthDays, endDayOfFirstMonth - beginDay + 1);
-
+            double startMonthAmount = calculateBudget
+                    (startMonthBudget, start.lengthOfMonth(), start.lengthOfMonth() - start.getDayOfMonth() + 1);
 
             //last month
             List<Budget> endMonthBudget = getMonthBudgetOfInputDate(totalBudgets, end);
-
-            double endMonthAmount = calculateBudget(endMonthBudget, end.lengthOfMonth(), endDay);
+            double endMonthAmount = calculateBudget(
+                    endMonthBudget, end.lengthOfMonth(), end.getDayOfMonth());
 
             // middle
             List<Budget> middleBudgets = totalBudgets;

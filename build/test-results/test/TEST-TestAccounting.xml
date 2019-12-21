@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestAccounting" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-12-21T14:28:46" hostname="LAPTOP-N4NVF0EL" time="0.05">
+<testsuite name="TestAccounting" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-12-21T14:36:01" hostname="LAPTOP-N4NVF0EL" time="0.055">
   <properties/>
-  <testcase name="testQueryCrossOneYear" classname="TestAccounting" time="0.039"/>
+  <testcase name="testQueryCrossOneYear" classname="TestAccounting" time="0.042"/>
   <testcase name="testQueryPartialCrossMoreThanTwoMonthWithLostOneMonth" classname="TestAccounting" time="0.002"/>
   <testcase name="testQueryCrossSameMonthOfDifferentYear" classname="TestAccounting" time="0.002"/>
   <testcase name="testQueryPartialCrossTwoMonth" classname="TestAccounting" time="0.001"/>
   <testcase name="testQueryPartialSingleMonth" classname="TestAccounting" time="0.001"/>
-  <testcase name="testQueryPartialCrossMoreThanTwoMonth" classname="TestAccounting" time="0.001"/>
-  <testcase name="testQueryCrossMonth" classname="TestAccounting" time="0.0"/>
+  <testcase name="testQueryPartialCrossMoreThanTwoMonth" classname="TestAccounting" time="0.002"/>
+  <testcase name="testQueryCrossMonth" classname="TestAccounting" time="0.001"/>
   <testcase name="testQuerySingleMonth" classname="TestAccounting" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
