@@ -17,25 +17,29 @@ public class Accounting {
         List<Budget> totalBudgets = getBudgetWithin(start, end);
 
         if (start.getYear() == end.getYear() && start.getMonth() == end.getMonth()) {
-            int endDay = end.getDayOfMonth();
             int beginDay = start.getDayOfMonth();
+            int endDay = end.getDayOfMonth();
+            int monthDays = start.lengthOfMonth();
 
             double totalBudget = totalBudgets.stream().mapToDouble(budget -> {
                 int diff = endDay - beginDay + 1;
-                return budget.amount * (diff) / start.lengthOfMonth();
+                return budget.amount * (diff) / monthDays;
             }).sum();
 
             return totalBudget;
         } else {
-            int beginDay = start.getDayOfMonth();
-            int endDay = end.getDayOfMonth();
 
             //firstMonth
             List<Budget> startMonthBudget = getMonthBudgetOfInputDate(totalBudgets, start);
 
+            int beginDay = start.getDayOfMonth();
+            int endDay = end.getDayOfMonth();
+            int monthDays = start.lengthOfMonth();
+            int endDayOfFirstMonth = start.lengthOfMonth();
+
             double startMonthAmount = startMonthBudget.stream().mapToDouble(budget -> {
-                int diff = start.lengthOfMonth() - beginDay + 1;
-                return budget.amount * (diff) / start.lengthOfMonth();
+                int diff = endDayOfFirstMonth - beginDay + 1;
+                return budget.amount * (diff) / monthDays;
             }).sum();
 
 
