@@ -8,20 +8,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Accounting.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Accounting.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/TestAccounting.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/TestAccounting.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/TestAccounting.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/TestAccounting.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-TestAccounting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-TestAccounting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Accounting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Accounting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestAccounting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestAccounting.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +62,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -235,40 +231,48 @@
       <option name="project" value="LOCAL" />
       <updated>1576934026786</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add test cross with the same month different year.">
+      <created>1576934504024</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576934504024</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="second commit" />
     <MESSAGE value="done" />
     <MESSAGE value="add test that cross one year." />
-    <option name="LAST_COMMIT_MESSAGE" value="add test that cross one year." />
+    <MESSAGE value="add test cross with the same month different year." />
+    <option name="LAST_COMMIT_MESSAGE" value="add test cross with the same month different year." />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="92" key="#com.intellij.ide.util.MemberChooser" timestamp="1576915487989">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
     <state x="440" y="92" key="#com.intellij.ide.util.MemberChooser/0.40.1280.680@0.40.1280.680" timestamp="1576915487989" />
-    <state x="64" y="40" key="CommitChangelistDialog2" timestamp="1576934025863">
+    <state x="64" y="40" key="CommitChangelistDialog2" timestamp="1576934503118">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state x="64" y="40" key="CommitChangelistDialog2/0.40.1280.680@0.40.1280.680" timestamp="1576934025863" />
-    <state width="1239" height="314" key="GridCell.Tab.0.bottom" timestamp="1576934423667">
+    <state x="64" y="40" key="CommitChangelistDialog2/0.40.1280.680@0.40.1280.680" timestamp="1576934503118" />
+    <state width="1239" height="314" key="GridCell.Tab.0.bottom" timestamp="1576934815510">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.bottom/0.40.1280.680@0.40.1280.680" timestamp="1576934423667" />
-    <state width="1239" height="314" key="GridCell.Tab.0.center" timestamp="1576934423666">
+    <state width="1239" height="314" key="GridCell.Tab.0.bottom/0.40.1280.680@0.40.1280.680" timestamp="1576934815510" />
+    <state width="1239" height="314" key="GridCell.Tab.0.center" timestamp="1576934815510">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.center/0.40.1280.680@0.40.1280.680" timestamp="1576934423666" />
-    <state width="1239" height="314" key="GridCell.Tab.0.left" timestamp="1576934423665">
+    <state width="1239" height="314" key="GridCell.Tab.0.center/0.40.1280.680@0.40.1280.680" timestamp="1576934815510" />
+    <state width="1239" height="314" key="GridCell.Tab.0.left" timestamp="1576934815509">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.left/0.40.1280.680@0.40.1280.680" timestamp="1576934423665" />
-    <state width="1239" height="314" key="GridCell.Tab.0.right" timestamp="1576934423667">
+    <state width="1239" height="314" key="GridCell.Tab.0.left/0.40.1280.680@0.40.1280.680" timestamp="1576934815509" />
+    <state width="1239" height="314" key="GridCell.Tab.0.right" timestamp="1576934815510">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
-    <state width="1239" height="314" key="GridCell.Tab.0.right/0.40.1280.680@0.40.1280.680" timestamp="1576934423667" />
+    <state width="1239" height="314" key="GridCell.Tab.0.right/0.40.1280.680@0.40.1280.680" timestamp="1576934815510" />
     <state x="121" y="40" key="SettingsEditor" timestamp="1576915113398">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
@@ -277,6 +281,10 @@
       <screen x="0" y="40" width="1280" height="680" />
     </state>
     <state x="251" y="276" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.40.1280.680@0.40.1280.680" timestamp="1576915100308" />
+    <state x="371" y="140" key="extract.method.dialog" timestamp="1576934587985">
+      <screen x="0" y="40" width="1280" height="680" />
+    </state>
+    <state x="371" y="140" key="extract.method.dialog/0.40.1280.680@0.40.1280.680" timestamp="1576934587985" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1576916392702">
       <screen x="0" y="40" width="1280" height="680" />
     </state>
