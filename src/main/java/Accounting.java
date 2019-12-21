@@ -2,9 +2,7 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Accounting {
 
@@ -19,35 +17,33 @@ public class Accounting {
         List<Budget> totalBudgets = getBudgetWithin(start, end);
 
         if (start.getYear() == end.getYear() && start.getMonth() == end.getMonth()) {
+            int endDay = end.getDayOfMonth();
+            int beginDay = start.getDayOfMonth();
+
             double totalBudget = totalBudgets.stream().mapToDouble(budget -> {
-                int diff = end.getDayOfMonth() - start.getDayOfMonth() + 1;
+                int diff = endDay - beginDay + 1;
                 return budget.amount * (diff) / start.lengthOfMonth();
             }).sum();
 
             return totalBudget;
         } else {
+            int beginDay = start.getDayOfMonth();
+            int endDay = end.getDayOfMonth();
+
             //firstMonth
-            List<Budget> startMonthBudget = totalBudgets.stream().filter(bd -> {
-                YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
-                YearMonth startYM = YearMonth.from(start);
-                return startYM.equals(d);
-            }).collect(Collectors.toList());
+            List<Budget> startMonthBudget = getMonthBudgetOfInputDate(totalBudgets, start);
 
             double startMonthAmount = startMonthBudget.stream().mapToDouble(budget -> {
-                int diff = start.lengthOfMonth() - start.getDayOfMonth() + 1;
+                int diff = start.lengthOfMonth() - beginDay + 1;
                 return budget.amount * (diff) / start.lengthOfMonth();
             }).sum();
 
 
             //last month
-            List<Budget> endMonthBudget = totalBudgets.stream().filter(bd -> {
-                YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
-                YearMonth endYM = YearMonth.from(end);
-                return endYM.equals(d);
-            }).collect(Collectors.toList());
+            List<Budget> endMonthBudget = getMonthBudgetOfInputDate(totalBudgets, end);
 
             double endMonthAmount = endMonthBudget.stream().mapToDouble(budget -> {
-                int diff = end.getDayOfMonth();
+                int diff = endDay;
                 return budget.amount * (diff) / end.lengthOfMonth();
             }).sum();
 
@@ -61,6 +57,14 @@ public class Accounting {
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
 
+    }
+
+    private List<Budget> getMonthBudgetOfInputDate(List<Budget> totalBudgets, LocalDate start) {
+        return totalBudgets.stream().filter(bd -> {
+            YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
+            YearMonth startYM = YearMonth.from(start);
+            return startYM.equals(d);
+        }).collect(Collectors.toList());
     }
 
     private List<Budget> getBudgetWithin(LocalDate start, LocalDate end) {

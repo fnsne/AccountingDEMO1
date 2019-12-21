@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestAccounting" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-21T13:23:28" hostname="LAPTOP-N4NVF0EL" time="0.037">
+<testsuite name="TestAccounting" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-12-21T13:53:23" hostname="LAPTOP-N4NVF0EL" time="0.054">
   <properties/>
-  <testcase name="testQueryCrossSameMonthOfDifferentYear" classname="TestAccounting" time="0.037"/>
+  <testcase name="testQueryCrossOneYear" classname="TestAccounting" time="0.041"/>
+  <testcase name="testQueryPartialCrossMoreThanTwoMonthWithLostOneMonth" classname="TestAccounting" time="0.002"/>
+  <testcase name="testQueryCrossSameMonthOfDifferentYear" classname="TestAccounting" time="0.002"/>
+  <testcase name="testQueryPartialCrossTwoMonth" classname="TestAccounting" time="0.002"/>
+  <testcase name="testQueryPartialSingleMonth" classname="TestAccounting" time="0.003"/>
+  <testcase name="testQueryPartialCrossMoreThanTwoMonth" classname="TestAccounting" time="0.001"/>
+  <testcase name="testQueryCrossMonth" classname="TestAccounting" time="0.001"/>
+  <testcase name="testQuerySingleMonth" classname="TestAccounting" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
