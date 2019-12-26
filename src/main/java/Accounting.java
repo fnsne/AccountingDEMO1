@@ -17,8 +17,7 @@ public class Accounting {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
                 Period period = new Period(start, end);
-                double intervalAmount = intervalBudgetAmount(budget, period);
-                sum += intervalAmount;
+                sum += intervalBudgetAmount(budget, period);
             }
             return sum;
         } else {
@@ -36,8 +35,7 @@ public class Accounting {
             for (Budget budget : getFirstMonthBudget) {
                 LocalDate lastDay = LocalDate.of(start.getYear(), start.getMonth(), start.lengthOfMonth());
                 Period period = new Period(start, lastDay);
-                double intervalAmount = intervalBudgetAmount(budget, period);
-                startMonthAmount += intervalAmount;
+                startMonthAmount += intervalBudgetAmount(budget, period);
             }
 
             //last month
@@ -53,8 +51,7 @@ public class Accounting {
             for (Budget budget : getLastMonthBudget) {
                 LocalDate firstDay = LocalDate.of(end.getYear(), end.getMonth(), 1);
                 Period period = new Period(firstDay, end);
-                double intervalAmount = intervalBudgetAmount(budget, period);
-                endMonthAmount += intervalAmount;
+                endMonthAmount += intervalBudgetAmount(budget, period);
             }
             // middle
             List<Budget> middleBudgets = getBudgets(start, end);
