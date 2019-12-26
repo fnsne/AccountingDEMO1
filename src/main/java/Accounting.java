@@ -15,7 +15,6 @@ public class Accounting {
 
     public double QueryBudget(LocalDate start, LocalDate end) {
         List<Budget> totalBudgets = getBudgetWithin(start, end);
-
         if (InSameMonth(start, end)) {
             double sum = 0;
             for (Budget budget : totalBudgets) {
@@ -28,7 +27,7 @@ public class Accounting {
             //firstMonth
             List<Budget> getFirstMonthBudget = new ArrayList<>();
             for (Budget budget : totalBudgets) {
-                YearMonth d1 = YearMonth.parse(budget.yearMonth, formatter);
+                YearMonth d1 = budget.getYearMonth();
                 YearMonth startYM1 = YearMonth.from(start);
                 if (startYM1.equals(d1)) {
                     getFirstMonthBudget.add(budget);
@@ -39,13 +38,13 @@ public class Accounting {
             double startMonthAmount = 0;
             for (Budget budget : getFirstMonthBudget) {
                 int diff1 = firstMonthEffectiveDays;
-                startMonthAmount += budget.amount * (diff1) / start.lengthOfMonth();
+                startMonthAmount += diff1 * budget.getDailyAmount();
             }
 
             //last month
             List<Budget> getLastMonthBudget = new ArrayList<>();
             for (Budget budget : totalBudgets) {
-                YearMonth d = YearMonth.parse(budget.yearMonth, formatter);
+                YearMonth d = budget.getYearMonth();
                 YearMonth startYM = YearMonth.from(end);
                 if (startYM.equals(d)) {
                     getLastMonthBudget.add(budget);
@@ -55,7 +54,7 @@ public class Accounting {
             double endMonthAmount = 0;
             for (Budget budget : getLastMonthBudget) {
                 int diff = lastMonthEffectiveDays;
-                endMonthAmount += budget.amount * (diff) / end.lengthOfMonth();
+                endMonthAmount += diff * budget.getDailyAmount();
             }
             // middle
             List<Budget> middleBudgets = totalBudgets;
