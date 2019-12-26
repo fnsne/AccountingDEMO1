@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Accounting {
-
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
     private IBudgetRepo db;
 
@@ -17,10 +16,18 @@ public class Accounting {
         List<Budget> totalBudgets = getBudgetWithin(start, end);
 
         if (InSameMonth(start, end)) {
-            return sameMonthBudget(start, end, totalBudgets);
+            return calculateBudget(
+                    totalBudgets,
+                    start.lengthOfMonth(),
+                    end.getDayOfMonth() - start.getDayOfMonth() + 1
+            );
         } else {
             //firstMonth
-            List<Budget> getFirstMonthBudget = getMonthBudgetOfInputDate(totalBudgets, start);
+            List<Budget> getFirstMonthBudget = totalBudgets.stream().filter(bd1 -> {
+                YearMonth d1 = YearMonth.parse(bd1.yearMonth, formatter);
+                YearMonth startYM1 = YearMonth.from(start);
+                return startYM1.equals(d1);
+            }).collect(Collectors.toList());
             int firstMonthEffectiveDays = start.lengthOfMonth() - start.getDayOfMonth() + 1;
             double startMonthAmount = calculateBudget(
                     getFirstMonthBudget,
@@ -29,7 +36,11 @@ public class Accounting {
             );
 
             //last month
-            List<Budget> getLastMonthBudget = getMonthBudgetOfInputDate(totalBudgets, end);
+            List<Budget> getLastMonthBudget = totalBudgets.stream().filter(bd -> {
+                YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
+                YearMonth startYM = YearMonth.from(end);
+                return startYM.equals(d);
+            }).collect(Collectors.toList());
             int lastMonthEffectiveDays = end.getDayOfMonth();
             double endMonthAmount = calculateBudget(
                     getLastMonthBudget,
@@ -49,14 +60,6 @@ public class Accounting {
 
     }
 
-    private double sameMonthBudget(LocalDate start, LocalDate end, List<Budget> totalBudgets) {
-        return calculateBudget(
-                totalBudgets,
-                start.lengthOfMonth(),
-                end.getDayOfMonth() - start.getDayOfMonth() + 1
-        );
-    }
-
     private boolean InSameMonth(LocalDate start, LocalDate end) {
         return start.getYear() == end.getYear() && start.getMonth() == end.getMonth();
     }
@@ -66,14 +69,6 @@ public class Accounting {
             int diff = effectiveDays;
             return budget.amount * (diff) / monthDays;
         }).sum();
-    }
-
-    private List<Budget> getMonthBudgetOfInputDate(List<Budget> totalBudgets, LocalDate start) {
-        return totalBudgets.stream().filter(bd -> {
-            YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
-            YearMonth startYM = YearMonth.from(start);
-            return startYM.equals(d);
-        }).collect(Collectors.toList());
     }
 
     private List<Budget> getBudgetWithin(LocalDate start, LocalDate end) {
