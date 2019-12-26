@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,35 +17,45 @@ public class Accounting {
         List<Budget> totalBudgets = getBudgetWithin(start, end);
 
         if (InSameMonth(start, end)) {
-            return totalBudgets.stream().mapToDouble(budget -> {
+            double sum = 0;
+            for (Budget budget : totalBudgets) {
                 int diff = end.getDayOfMonth() - start.getDayOfMonth() + 1;
-                return budget.amount * (diff) / start.lengthOfMonth();
-            }).sum();
+                sum += budget.amount * (diff) / start.lengthOfMonth();
+            }
+            return sum;
         } else {
             //firstMonth
-            List<Budget> getFirstMonthBudget = totalBudgets.stream().filter(bd1 -> {
-                YearMonth d1 = YearMonth.parse(bd1.yearMonth, formatter);
+            List<Budget> getFirstMonthBudget = new ArrayList<>();
+            for (Budget budget : totalBudgets) {
+                YearMonth d1 = YearMonth.parse(budget.yearMonth, formatter);
                 YearMonth startYM1 = YearMonth.from(start);
-                return startYM1.equals(d1);
-            }).collect(Collectors.toList());
+                if (startYM1.equals(d1)) {
+                    getFirstMonthBudget.add(budget);
+                }
+            }
+
             int firstMonthEffectiveDays = start.lengthOfMonth() - start.getDayOfMonth() + 1;
-            double startMonthAmount = getFirstMonthBudget.stream().mapToDouble(budget2 -> {
+            double startMonthAmount = 0;
+            for (Budget budget : getFirstMonthBudget) {
                 int diff1 = firstMonthEffectiveDays;
-                return budget2.amount * (diff1) / start.lengthOfMonth();
-            }).sum();
+                startMonthAmount += budget.amount * (diff1) / start.lengthOfMonth();
+            }
 
             //last month
-            List<Budget> getLastMonthBudget = totalBudgets.stream().filter(bd -> {
-                YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
+            List<Budget> getLastMonthBudget = new ArrayList<>();
+            for (Budget budget : totalBudgets) {
+                YearMonth d = YearMonth.parse(budget.yearMonth, formatter);
                 YearMonth startYM = YearMonth.from(end);
-                return startYM.equals(d);
-            }).collect(Collectors.toList());
+                if (startYM.equals(d)) {
+                    getLastMonthBudget.add(budget);
+                }
+            }
             int lastMonthEffectiveDays = end.getDayOfMonth();
-            double endMonthAmount = getLastMonthBudget.stream().mapToDouble(budget1 -> {
+            double endMonthAmount = 0;
+            for (Budget budget : getLastMonthBudget) {
                 int diff = lastMonthEffectiveDays;
-                return budget1.amount * (diff) / end.lengthOfMonth();
-            }).sum();
-
+                endMonthAmount += budget.amount * (diff) / end.lengthOfMonth();
+            }
             // middle
             List<Budget> middleBudgets = totalBudgets;
             middleBudgets.removeAll(getFirstMonthBudget);
