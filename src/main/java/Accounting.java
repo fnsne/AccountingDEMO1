@@ -3,7 +3,6 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Accounting {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
@@ -19,7 +18,7 @@ public class Accounting {
             for (Budget budget : getBudgets(start, end)) {
                 Period period = new Period(start, end);
                 double diff = period.getDays();
-                sum += intervalAmount(budget, diff);
+                sum += diff * budget.getDailyAmount();
             }
             return sum;
         } else {
@@ -36,7 +35,7 @@ public class Accounting {
             double startMonthAmount = 0;
             for (Budget budget : getFirstMonthBudget) {
                 int diff = start.lengthOfMonth() - start.getDayOfMonth() + 1;
-                startMonthAmount += intervalAmount(budget, diff);
+                startMonthAmount += (double) diff * budget.getDailyAmount();
             }
 
             //last month
@@ -51,7 +50,7 @@ public class Accounting {
             double endMonthAmount = 0;
             for (Budget budget : getLastMonthBudget) {
                 double diff = end.getDayOfMonth();
-                endMonthAmount += intervalAmount(budget, diff);
+                endMonthAmount += diff * budget.getDailyAmount();
             }
             // middle
             List<Budget> middleBudgets = getBudgets(start, end);
@@ -66,10 +65,6 @@ public class Accounting {
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
 
-    }
-
-    private double intervalAmount(Budget budget, double diff) {
-        return diff * budget.getDailyAmount();
     }
 
     private List<Budget> getBudgets(LocalDate start, LocalDate end) {
