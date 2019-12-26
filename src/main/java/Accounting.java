@@ -61,7 +61,10 @@ public class Accounting {
             middleBudgets.removeAll(getFirstMonthBudget);
             middleBudgets.removeAll(getLastMonthBudget);
 
-            double middleMonthAmount = middleBudgets.stream().mapToDouble(budget -> budget.amount).sum();
+            double middleMonthAmount = 0;
+            for (Budget budget : middleBudgets) {
+                middleMonthAmount += budget.amount;
+            }
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
