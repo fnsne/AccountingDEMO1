@@ -16,13 +16,16 @@ public class Accounting {
     public double QueryBudget(LocalDate start, LocalDate end) {
         List<Budget> budgets = db.GetAll();
 
-        List<Budget> totalBudgets = budgets.stream().filter(bd ->
-        {
-            YearMonth d2 = YearMonth.parse(bd.yearMonth, formatter);
+        List<Budget> totalBudgets = new ArrayList<>();
+        for (Budget budget : budgets) {
+            YearMonth d2 = YearMonth.parse(budget.yearMonth, formatter);
             YearMonth startYM2 = YearMonth.from(start);
             YearMonth endYM = YearMonth.from(end);
-            return (d2.equals(startYM2) || d2.isAfter(startYM2)) && (d2.equals(endYM) || d2.isBefore(endYM));
-        }).collect(Collectors.toList());
+            if ((d2.equals(startYM2) || d2.isAfter(startYM2)) && (d2.equals(endYM) || d2.isBefore(endYM))) {
+                totalBudgets.add(budget);
+            }
+        }
+
         if (InSameMonth(start, end)) {
             double sum = 0;
             for (Budget budget : totalBudgets) {
