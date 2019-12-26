@@ -63,7 +63,7 @@ public class Accounting {
 
             double middleMonthAmount = 0;
             for (Budget budget : middleBudgets) {
-                middleMonthAmount += budget.amount;
+                middleMonthAmount += budget.getDailyAmount() * budget.getYearMonth().lengthOfMonth();
             }
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
