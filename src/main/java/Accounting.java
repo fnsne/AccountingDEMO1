@@ -16,19 +16,9 @@ public class Accounting {
     public double QueryBudget(LocalDate start, LocalDate end) {
         List<Budget> budgets = db.GetAll();
 
-        List<Budget> totalBudgets = new ArrayList<>();
-        for (Budget budget : budgets) {
-            YearMonth d2 = budget.getYearMonth();
-            YearMonth startYM2 = YearMonth.from(start);
-            YearMonth endYM = YearMonth.from(end);
-            if ((d2.equals(startYM2) || d2.isAfter(startYM2)) && (d2.equals(endYM) || d2.isBefore(endYM))) {
-                totalBudgets.add(budget);
-            }
-        }
-
         if (InSameMonth(start, end)) {
             double sum = 0;
-            for (Budget budget : totalBudgets) {
+            for (Budget budget : getBudgets(start, end, budgets)) {
                 double diff = end.getDayOfMonth() - start.getDayOfMonth() + 1;
                 double dailyAmount = budget.getDailyAmount();
                 sum += diff * dailyAmount;
@@ -37,7 +27,7 @@ public class Accounting {
         } else {
             //firstMonth
             List<Budget> getFirstMonthBudget = new ArrayList<>();
-            for (Budget budget : totalBudgets) {
+            for (Budget budget : getBudgets(start, end, budgets)) {
                 YearMonth d1 = budget.getYearMonth();
                 YearMonth startYM1 = YearMonth.from(start);
                 if (startYM1.equals(d1)) {
@@ -54,7 +44,7 @@ public class Accounting {
 
             //last month
             List<Budget> getLastMonthBudget = new ArrayList<>();
-            for (Budget budget : totalBudgets) {
+            for (Budget budget : getBudgets(start, end, budgets)) {
                 YearMonth d = budget.getYearMonth();
                 YearMonth startYM = YearMonth.from(end);
                 if (startYM.equals(d)) {
@@ -68,7 +58,7 @@ public class Accounting {
                 endMonthAmount += diff * budget.getDailyAmount();
             }
             // middle
-            List<Budget> middleBudgets = totalBudgets;
+            List<Budget> middleBudgets = getBudgets(start, end, budgets);
             middleBudgets.removeAll(getFirstMonthBudget);
             middleBudgets.removeAll(getLastMonthBudget);
 
@@ -80,6 +70,18 @@ public class Accounting {
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
 
+    }
+
+    private List<Budget> getBudgets(LocalDate start, LocalDate end, List<Budget> budgets) {
+        List<Budget> totalBudgets = new ArrayList<>();
+        for (Budget budget : budgets) {
+            if ((budget.getYearMonth().equals(YearMonth.from(start)) || budget.getYearMonth().isAfter(YearMonth.from(start)))
+                    &&
+                    (budget.getYearMonth().equals(YearMonth.from(end)) || budget.getYearMonth().isBefore(YearMonth.from(end)))) {
+                totalBudgets.add(budget);
+            }
+        }
+        return totalBudgets;
     }
 
     private boolean InSameMonth(LocalDate start, LocalDate end) {
