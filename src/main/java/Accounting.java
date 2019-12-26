@@ -34,7 +34,9 @@ public class Accounting {
 
             double startMonthAmount = 0;
             for (Budget budget : getFirstMonthBudget) {
-                int diff = start.lengthOfMonth() - start.getDayOfMonth() + 1;
+                LocalDate lastDay = LocalDate.of(start.getYear(), start.getMonth(), start.lengthOfMonth());
+                Period period = new Period(start, lastDay);
+                double diff = period.getDays();
                 startMonthAmount += (double) diff * budget.getDailyAmount();
             }
 
@@ -49,7 +51,9 @@ public class Accounting {
             }
             double endMonthAmount = 0;
             for (Budget budget : getLastMonthBudget) {
-                double diff = end.getDayOfMonth();
+                LocalDate firstDay = LocalDate.of(end.getYear(), end.getMonth(), 1);
+                Period period = new Period(firstDay, end);
+                double diff = period.getDays();
                 endMonthAmount += diff * budget.getDailyAmount();
             }
             // middle
