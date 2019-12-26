@@ -20,7 +20,7 @@ public class Accounting {
             double sum = 0;
             for (Budget budget : totalBudgets) {
                 double diff = end.getDayOfMonth() - start.getDayOfMonth() + 1;
-                double dailyAmount = budget.getDailyAmount(start);
+                double dailyAmount = budget.getDailyAmount();
                 sum += diff * dailyAmount;
             }
             return sum;

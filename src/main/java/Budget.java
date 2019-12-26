@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 
 public class Budget {
     String yearMonth;
@@ -9,8 +11,9 @@ public class Budget {
         this.amount = amount;
     }
 
-    public String getYearMonth() {
-        return yearMonth;
+    public YearMonth getYearMonth() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
+        return YearMonth.parse(yearMonth, formatter);
     }
 
     public void setYearMonth(String yearMonth) {
@@ -25,7 +28,7 @@ public class Budget {
         this.amount = amount;
     }
 
-    public double getDailyAmount(LocalDate start) {
-        return (double) amount / start.lengthOfMonth();
+    public double getDailyAmount() {
+        return (double) amount / getYearMonth().lengthOfMonth();
     }
 }
