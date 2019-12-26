@@ -14,7 +14,15 @@ public class Accounting {
     }
 
     public double QueryBudget(LocalDate start, LocalDate end) {
-        List<Budget> totalBudgets = getBudgetWithin(start, end);
+        List<Budget> budgets = db.GetAll();
+
+        List<Budget> totalBudgets = budgets.stream().filter(bd ->
+        {
+            YearMonth d2 = YearMonth.parse(bd.yearMonth, formatter);
+            YearMonth startYM2 = YearMonth.from(start);
+            YearMonth endYM = YearMonth.from(end);
+            return (d2.equals(startYM2) || d2.isAfter(startYM2)) && (d2.equals(endYM) || d2.isBefore(endYM));
+        }).collect(Collectors.toList());
         if (InSameMonth(start, end)) {
             double sum = 0;
             for (Budget budget : totalBudgets) {
@@ -75,15 +83,4 @@ public class Accounting {
         return start.getYear() == end.getYear() && start.getMonth() == end.getMonth();
     }
 
-    private List<Budget> getBudgetWithin(LocalDate start, LocalDate end) {
-        List<Budget> budgets = db.GetAll();
-
-        return budgets.stream().filter(bd ->
-        {
-            YearMonth d = YearMonth.parse(bd.yearMonth, formatter);
-            YearMonth startYM = YearMonth.from(start);
-            YearMonth endYM = YearMonth.from(end);
-            return (d.equals(startYM) || d.isAfter(startYM)) && (d.equals(endYM) || d.isBefore(endYM));
-        }).collect(Collectors.toList());
-    }
 }
