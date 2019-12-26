@@ -17,7 +17,8 @@ public class Accounting {
         if (InSameMonth(start, end)) {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
-                double diff = (end.getDayOfMonth() - start.getDayOfMonth() + 1);
+                Period period = new Period(start, end);
+                double diff = period.getDays();
                 sum += intervalAmount(budget, diff);
             }
             return sum;
