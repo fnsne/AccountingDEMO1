@@ -17,9 +17,8 @@ public class Accounting {
         if (InSameMonth(start, end)) {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
-                double diff = end.getDayOfMonth() - start.getDayOfMonth() + 1;
-                double dailyAmount = budget.getDailyAmount();
-                sum += diff * dailyAmount;
+                double diff = (end.getDayOfMonth() - start.getDayOfMonth() + 1);
+                sum += diff * budget.getDailyAmount();
             }
             return sum;
         } else {
@@ -33,11 +32,10 @@ public class Accounting {
                 }
             }
 
-            int firstMonthEffectiveDays = start.lengthOfMonth() - start.getDayOfMonth() + 1;
             double startMonthAmount = 0;
             for (Budget budget : getFirstMonthBudget) {
-                int diff1 = firstMonthEffectiveDays;
-                startMonthAmount += diff1 * budget.getDailyAmount();
+                int diff = start.lengthOfMonth() - start.getDayOfMonth() + 1;
+                startMonthAmount += diff * budget.getDailyAmount();
             }
 
             //last month
@@ -49,10 +47,9 @@ public class Accounting {
                     getLastMonthBudget.add(budget);
                 }
             }
-            int lastMonthEffectiveDays = end.getDayOfMonth();
             double endMonthAmount = 0;
             for (Budget budget : getLastMonthBudget) {
-                int diff = lastMonthEffectiveDays;
+                double diff = end.getDayOfMonth();
                 endMonthAmount += diff * budget.getDailyAmount();
             }
             // middle
