@@ -18,7 +18,7 @@ public class Accounting {
 
         List<Budget> totalBudgets = new ArrayList<>();
         for (Budget budget : budgets) {
-            YearMonth d2 = YearMonth.parse(budget.yearMonth, formatter);
+            YearMonth d2 = budget.getYearMonth();
             YearMonth startYM2 = YearMonth.from(start);
             YearMonth endYM = YearMonth.from(end);
             if ((d2.equals(startYM2) || d2.isAfter(startYM2)) && (d2.equals(endYM) || d2.isBefore(endYM))) {
