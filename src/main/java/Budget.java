@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Budget {
     String yearMonth;
     int amount;
@@ -21,5 +23,9 @@ public class Budget {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public double getDailyAmount(LocalDate start) {
+        return (double) amount / start.lengthOfMonth();
     }
 }
