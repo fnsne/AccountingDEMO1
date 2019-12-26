@@ -14,11 +14,9 @@ public class Accounting {
     }
 
     public double QueryBudget(LocalDate start, LocalDate end) {
-        List<Budget> budgets = db.GetAll();
-
         if (InSameMonth(start, end)) {
             double sum = 0;
-            for (Budget budget : getBudgets(start, end, budgets)) {
+            for (Budget budget : getBudgets(start, end)) {
                 double diff = end.getDayOfMonth() - start.getDayOfMonth() + 1;
                 double dailyAmount = budget.getDailyAmount();
                 sum += diff * dailyAmount;
@@ -27,7 +25,7 @@ public class Accounting {
         } else {
             //firstMonth
             List<Budget> getFirstMonthBudget = new ArrayList<>();
-            for (Budget budget : getBudgets(start, end, budgets)) {
+            for (Budget budget : getBudgets(start, end)) {
                 YearMonth d1 = budget.getYearMonth();
                 YearMonth startYM1 = YearMonth.from(start);
                 if (startYM1.equals(d1)) {
@@ -44,7 +42,7 @@ public class Accounting {
 
             //last month
             List<Budget> getLastMonthBudget = new ArrayList<>();
-            for (Budget budget : getBudgets(start, end, budgets)) {
+            for (Budget budget : getBudgets(start, end)) {
                 YearMonth d = budget.getYearMonth();
                 YearMonth startYM = YearMonth.from(end);
                 if (startYM.equals(d)) {
@@ -58,7 +56,7 @@ public class Accounting {
                 endMonthAmount += diff * budget.getDailyAmount();
             }
             // middle
-            List<Budget> middleBudgets = getBudgets(start, end, budgets);
+            List<Budget> middleBudgets = getBudgets(start, end);
             middleBudgets.removeAll(getFirstMonthBudget);
             middleBudgets.removeAll(getLastMonthBudget);
 
@@ -72,9 +70,9 @@ public class Accounting {
 
     }
 
-    private List<Budget> getBudgets(LocalDate start, LocalDate end, List<Budget> budgets) {
+    private List<Budget> getBudgets(LocalDate start, LocalDate end) {
         List<Budget> totalBudgets = new ArrayList<>();
-        for (Budget budget : budgets) {
+        for (Budget budget : db.GetAll()) {
             if ((budget.getYearMonth().equals(YearMonth.from(start)) || budget.getYearMonth().isAfter(YearMonth.from(start)))
                     &&
                     (budget.getYearMonth().equals(YearMonth.from(end)) || budget.getYearMonth().isBefore(YearMonth.from(end)))) {
