@@ -17,12 +17,16 @@ public class Accounting {
         for (Budget budget : getBudgets(start, end)) {
             Period period1 = new Period(start, end);
             Period period2 = budget.createPeriod();
-            Period period = overlappingPeriod(period1, period2);
-            double budgetAmount = budget.budgetAmountOfPeriod(period);
+            double budgetAmount = overlappingAmount(budget, period1, period2);
             sum += budgetAmount;
         }
         return sum;
 
+    }
+
+    private double overlappingAmount(Budget budget, Period period1, Period period2) {
+        Period period = overlappingPeriod(period1, period2);
+        return budget.budgetAmountOfPeriod(period);
     }
 
     private Period overlappingPeriod(Period period1, Period period2) {
