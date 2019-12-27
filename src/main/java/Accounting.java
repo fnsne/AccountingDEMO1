@@ -17,21 +17,18 @@ public class Accounting {
             } else {
                 Period period1 = new Period(start, end);
                 Period period2 = budget.createPeriod();
-                Period period = overlappingPeriod(period1, period2);
-                budgetAmount = budget.budgetAmountOfPeriod(period);
+                LocalDate periodStartDay;
+                LocalDate periodEndDay;
+                periodStartDay = period1.getStart().isAfter(period2.getStart()) ? period1.getStart() : period2.getStart();
+                periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
+                Period period = new Period(periodStartDay, periodEndDay);
+                double diff = period.getDays();
+                budgetAmount = diff * budget.getDailyAmount();
             }
             sum += budgetAmount;
         }
         return sum;
 
-    }
-
-    private Period overlappingPeriod(Period period1, Period period2) {
-        LocalDate periodStartDay;
-        LocalDate periodEndDay;
-        periodStartDay = period1.getStart().isAfter(period2.getStart()) ? period1.getStart() : period2.getStart();
-        periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
-        return new Period(periodStartDay, periodEndDay);
     }
 
     private boolean InSameMonth(LocalDate start, LocalDate end) {

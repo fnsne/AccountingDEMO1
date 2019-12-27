@@ -40,11 +40,6 @@ public class Budget {
         return LocalDate.of(getYearMonth().getYear(), getYearMonth().getMonth(), getYearMonth().lengthOfMonth());
     }
 
-    public double budgetAmountOfPeriod(Period period) {
-        double diff = period.getDays();
-        return diff * getDailyAmount();
-    }
-
     public Period createPeriod() {
         return new Period(firstDay(), lastDay());
     }
