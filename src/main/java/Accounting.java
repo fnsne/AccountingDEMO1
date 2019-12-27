@@ -9,12 +9,8 @@ public class Accounting {
 
     public double QueryBudget(LocalDate start, LocalDate end) {
         return db.GetAll().stream()
-                .mapToDouble(budget -> intervalAmount(start, end, budget))
+                .mapToDouble(budget -> budget.intervalAmount(start, end))
                 .sum();
-    }
-
-    private double intervalAmount(LocalDate start, LocalDate end, Budget budget) {
-        return new Period(start, end).overlappingDays(budget) * budget.getDailyAmount();
     }
 
 }
