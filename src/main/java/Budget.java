@@ -44,4 +44,8 @@ public class Budget {
         double diff = period.getDays();
         return diff * getDailyAmount();
     }
+
+    public Period createPeriod() {
+        return new Period(firstDay(), lastDay());
+    }
 }
