@@ -29,12 +29,10 @@ public class Accounting {
         LocalDate periodStartDay;
         LocalDate periodEndDay;
         periodStartDay = period1.getStart().isAfter(period2.getStart()) ? period1.getStart() : period2.getStart();
+        periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
         if (InSameMonth(period1.getStart(), period2.getStart())) {
-            periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
         } else if (InSameMonth(period1.getEnd(), period2.getStart())) {
-            periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
         } else {
-            periodEndDay = period2.getEnd();
         }
         return new Period(periodStartDay, periodEndDay);
     }
