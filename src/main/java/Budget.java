@@ -32,11 +32,11 @@ public class Budget {
         return (double) amount / getYearMonth().lengthOfMonth();
     }
 
-    public LocalDate getBudgetFirstDay() {
+    public LocalDate firstDay() {
         return LocalDate.of(getYearMonth().getYear(), getYearMonth().getMonth(), 1);
     }
 
-    public LocalDate getBudgetLastDay() {
+    public LocalDate lastDay() {
         return LocalDate.of(getYearMonth().getYear(), getYearMonth().getMonth(), getYearMonth().lengthOfMonth());
     }
 }

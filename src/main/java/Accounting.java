@@ -35,8 +35,8 @@ public class Accounting {
 
             double startMonthAmount = 0;
             for (Budget budget : getFirstMonthBudget) {
-                LocalDate budgetStartDay = budget.getBudgetFirstDay();
-                LocalDate budgetEndDay = budget.getBudgetLastDay();
+                LocalDate budgetStartDay = budget.firstDay();
+                LocalDate budgetEndDay = budget.lastDay();
 
                 LocalDate periodStartDay = start.isAfter(budgetStartDay) ? start : budgetStartDay;
                 LocalDate periodEndDay = end.isBefore(budgetEndDay) ? end : budgetEndDay;
