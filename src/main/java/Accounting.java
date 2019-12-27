@@ -27,12 +27,10 @@ public class Accounting {
         } else {
             //firstMonth
             double startMonthAmount = 0;
-            List<Budget> getFirstMonthBudget = new ArrayList<>();
             for (Budget budget : getBudgets(start, end)) {
                 YearMonth d1 = budget.getYearMonth();
                 YearMonth startYM1 = YearMonth.from(start);
                 if (startYM1.equals(d1)) {
-                    getFirstMonthBudget.add(budget);
                     LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
                     LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
@@ -42,21 +40,17 @@ public class Accounting {
             }
 
             //last month
-            List<Budget> getLastMonthBudget = new ArrayList<>();
+            double endMonthAmount = 0;
             for (Budget budget : getBudgets(start, end)) {
                 YearMonth d = budget.getYearMonth();
                 YearMonth startYM = YearMonth.from(end);
                 if (startYM.equals(d)) {
-                    getLastMonthBudget.add(budget);
-                }
-            }
-            double endMonthAmount = 0;
-            for (Budget budget : getLastMonthBudget) {
-                LocalDate periodStartDay = budget.firstDay();
-                LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
+                    LocalDate periodStartDay = budget.firstDay();
+                    LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
-                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                endMonthAmount += budgetAmount;
+                    double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
+                    endMonthAmount += budgetAmount;
+                }
             }
             // middle
             List<Budget> middleBudgets = new ArrayList<>();
