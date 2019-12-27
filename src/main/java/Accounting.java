@@ -16,10 +16,7 @@ public class Accounting {
         if (InSameMonth(start, end)) {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
-                LocalDate periodStartDay = start;
-                LocalDate periodEndDay = end;
-
-                double budgetAmount = budget.budgetAmountOfPeriod(new Period(periodStartDay, periodEndDay));
+                double budgetAmount = budget.budgetAmountOfPeriod(new Period(start, end));
                 sum += budgetAmount;
             }
             return sum;
