@@ -19,8 +19,7 @@ public class Accounting {
                 LocalDate periodStartDay = start;
                 LocalDate periodEndDay = end;
 
-                double diff = new Period(periodStartDay, periodEndDay).getDays();
-                double budgetAmount = diff * budget.getDailyAmount();
+                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
                 sum += budgetAmount;
             }
             return sum;
@@ -40,8 +39,7 @@ public class Accounting {
                 LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
                 LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
-                double diff = new Period(periodStartDay, periodEndDay).getDays();
-                double budgetAmount = diff * budget.getDailyAmount();
+                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
                 startMonthAmount += budgetAmount;
             }
 
@@ -59,8 +57,7 @@ public class Accounting {
                 LocalDate periodStartDay = budget.firstDay();
                 LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
-                double diff = new Period(periodStartDay, periodEndDay).getDays();
-                double budgetAmount = diff * budget.getDailyAmount();
+                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
                 endMonthAmount += budgetAmount;
             }
             // middle
@@ -73,8 +70,7 @@ public class Accounting {
                 LocalDate periodStartDay = budget.firstDay();
                 LocalDate periodEndDay = budget.lastDay();
 
-                double diff = new Period(periodStartDay, periodEndDay).getDays();
-                double budgetAmount = diff * budget.getDailyAmount();
+                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
                 middleMonthAmount += budgetAmount;
             }
 
