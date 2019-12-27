@@ -26,7 +26,7 @@ public class Accounting {
         } else {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
-                Period period = getOverlappingPeriod(budget, new Period(start, end));
+                Period period = getOverlappingPeriod(new Period(start, end), budget.createPeriod());
                 double budgetAmount = budget.budgetAmountOfPeriod(period);
                 sum += budgetAmount;
             }
@@ -35,19 +35,18 @@ public class Accounting {
 
     }
 
-    private Period getOverlappingPeriod(Budget budget, Period period) {
+    private Period getOverlappingPeriod(Period period1, Period period2) {
         LocalDate periodStartDay;
         LocalDate periodEndDay;
-        Period period1 = budget.createPeriod();
-        if (InSameMonth(period.getStart(), period1.getStart())) {
-            periodStartDay = period.getStart().isAfter(period1.getStart()) ? period.getStart() : period1.getStart();
-            periodEndDay = period.getEnd().isBefore(period1.getEnd()) ? period.getEnd() : period1.getEnd();
-        } else if (InSameMonth(period.getEnd(), period1.getStart())) {
-            periodStartDay = period1.getStart();
-            periodEndDay = period.getEnd().isBefore(period1.getEnd()) ? period.getEnd() : period1.getEnd();
+        if (InSameMonth(period1.getStart(), period2.getStart())) {
+            periodStartDay = period1.getStart().isAfter(period2.getStart()) ? period1.getStart() : period2.getStart();
+            periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
+        } else if (InSameMonth(period1.getEnd(), period2.getStart())) {
+            periodStartDay = period2.getStart();
+            periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
         } else {
-            periodStartDay = period1.getStart();
-            periodEndDay = period1.getEnd();
+            periodStartDay = period2.getStart();
+            periodEndDay = period2.getEnd();
         }
         return new Period(periodStartDay, periodEndDay);
     }
