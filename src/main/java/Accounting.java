@@ -64,10 +64,10 @@ public class Accounting {
 
             double middleMonthAmount = 0;
             for (Budget budget : middleBudgets) {
-                LocalDate budgetStartDay = budget.firstDay();
-                LocalDate budgetEndDay = budget.lastDay();
+                LocalDate periodStartDay = budget.firstDay();
+                LocalDate periodEndDay = budget.lastDay();
 
-                middleMonthAmount += overlappingAmount(budget, budgetStartDay, budgetEndDay);
+                middleMonthAmount += overlappingAmount(budget, periodStartDay, periodEndDay);
             }
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
