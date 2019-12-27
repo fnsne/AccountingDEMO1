@@ -28,9 +28,7 @@ public class Accounting {
             //firstMonth
             double startMonthAmount = 0;
             for (Budget budget : getBudgets(start, end)) {
-                YearMonth d1 = budget.getYearMonth();
-                YearMonth startYM1 = YearMonth.from(start);
-                if (startYM1.equals(d1)) {
+                if (InSameMonth(start, budget.firstDay())) {
                     LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
                     LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
@@ -42,9 +40,7 @@ public class Accounting {
             //last month
             double endMonthAmount = 0;
             for (Budget budget : getBudgets(start, end)) {
-                YearMonth d = budget.getYearMonth();
-                YearMonth startYM = YearMonth.from(end);
-                if (startYM.equals(d)) {
+                if (InSameMonth(end, budget.firstDay())) {
                     LocalDate periodStartDay = budget.firstDay();
                     LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
