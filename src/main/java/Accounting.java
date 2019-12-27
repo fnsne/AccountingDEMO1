@@ -22,17 +22,17 @@ public class Accounting {
 
     private double overlappingDays(Budget budget, Period period) {
         double diff;
-        LocalDate start1 = period.getStart();
-        LocalDate end1 = period.getEnd();
-        if (start1.isAfter(budget.lastDay()) || end1.isBefore(budget.firstDay())) {
+        if (period.getStart().isAfter(budget.lastDay()) || period.getEnd().isBefore(budget.firstDay())) {
             diff = 0;
         } else {
-            Period period1 = period;
-            Period period2 = budget.createPeriod();
             LocalDate periodStartDay;
             LocalDate periodEndDay;
-            periodStartDay = period1.getStart().isAfter(period2.getStart()) ? period1.getStart() : period2.getStart();
-            periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
+            periodStartDay = period.getStart().isAfter(budget.createPeriod().getStart())
+                    ? period.getStart()
+                    : budget.createPeriod().getStart();
+            periodEndDay = period.getEnd().isBefore(budget.createPeriod().getEnd())
+                    ? period.getEnd()
+                    : budget.createPeriod().getEnd();
             diff = new Period(periodStartDay, periodEndDay).getDays();
         }
         return diff;
