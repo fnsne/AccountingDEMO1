@@ -35,11 +35,8 @@ public class Accounting {
 
             double startMonthAmount = 0;
             for (Budget budget : getFirstMonthBudget) {
-                LocalDate budgetStartDay = budget.firstDay();
-                LocalDate budgetEndDay = budget.lastDay();
-
-                LocalDate periodStartDay = start.isAfter(budgetStartDay) ? start : budgetStartDay;
-                LocalDate periodEndDay = end.isBefore(budgetEndDay) ? end : budgetEndDay;
+                LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
+                LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
                 Period period = new Period(periodStartDay, periodEndDay);
                 double diff = period.getDays();
@@ -58,9 +55,10 @@ public class Accounting {
             }
             double endMonthAmount = 0;
             for (Budget budget : getLastMonthBudget) {
+                LocalDate periodStartDay = budget.firstDay();
+                LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
-                LocalDate firstDay = LocalDate.of(end.getYear(), end.getMonth(), 1);
-                Period period = new Period(firstDay, end);
+                Period period = new Period(periodStartDay, periodEndDay);
                 double diff = period.getDays();
                 double budgetAmount = diff * budget.getDailyAmount();
                 endMonthAmount += budgetAmount;
