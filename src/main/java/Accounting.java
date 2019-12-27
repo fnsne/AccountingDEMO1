@@ -15,9 +15,8 @@ public class Accounting {
     public double QueryBudget(LocalDate start, LocalDate end) {
         double sum = 0;
         for (Budget budget : db.GetAll()) {
-            if ((budget.getYearMonth().equals(YearMonth.from(start)) || budget.getYearMonth().isAfter(YearMonth.from(start)))
-                    &&
-                    (budget.getYearMonth().equals(YearMonth.from(end)) || budget.getYearMonth().isBefore(YearMonth.from(end)))) {
+            if (start.isAfter(budget.lastDay()) || end.isBefore(budget.firstDay())) {
+            } else {
                 double budgetAmount = overlappingAmount(start, end, budget);
                 sum += budgetAmount;
             }
