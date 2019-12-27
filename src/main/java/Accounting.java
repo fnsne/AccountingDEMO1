@@ -26,29 +26,22 @@ public class Accounting {
             return sum;
         } else {
             double sum = 0;
+            LocalDate periodStartDay;
+            LocalDate periodEndDay;
             for (Budget budget : getBudgets(start, end)) {
                 if (InSameMonth(start, budget.firstDay())) {
-                    //firstMonth
-                    LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
-                    LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
-
-                    double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                    sum += budgetAmount;
+                    periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
+                    periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
                 } else if (InSameMonth(end, budget.firstDay())) {
-                    //last month
-                    LocalDate periodStartDay = budget.firstDay();
-                    LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
-
-                    double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                    sum += budgetAmount;
+                    periodStartDay = budget.firstDay();
+                    periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
                 } else {
-                    // middle
-                    LocalDate periodStartDay = budget.firstDay();
-                    LocalDate periodEndDay = budget.lastDay();
+                    periodStartDay = budget.firstDay();
+                    periodEndDay = budget.lastDay();
 
-                    double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                    sum += budgetAmount;
                 }
+                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
+                sum += budgetAmount;
             }
             return sum;
         }
