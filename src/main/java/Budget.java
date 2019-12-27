@@ -39,4 +39,10 @@ public class Budget {
     public LocalDate lastDay() {
         return LocalDate.of(getYearMonth().getYear(), getYearMonth().getMonth(), getYearMonth().lengthOfMonth());
     }
+
+    public double overlappingAmount(LocalDate periodStartDay, LocalDate periodEndDay) {
+        Period period = new Period(periodStartDay, periodEndDay);
+        double diff = period.getDays();
+        return diff * getDailyAmount();
+    }
 }

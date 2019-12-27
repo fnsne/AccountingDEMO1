@@ -19,7 +19,7 @@ public class Accounting {
                 LocalDate periodStartDay = start;
                 LocalDate periodEndDay = end;
 
-                sum += overlappingAmount(budget, periodStartDay, periodEndDay);
+                sum += budget.overlappingAmount(periodStartDay, periodEndDay);
             }
             return sum;
         } else {
@@ -38,7 +38,7 @@ public class Accounting {
                 LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
                 LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
-                startMonthAmount += overlappingAmount(budget, periodStartDay, periodEndDay);
+                startMonthAmount += budget.overlappingAmount(periodStartDay, periodEndDay);
             }
 
             //last month
@@ -55,7 +55,7 @@ public class Accounting {
                 LocalDate periodStartDay = budget.firstDay();
                 LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
-                endMonthAmount += overlappingAmount(budget, periodStartDay, periodEndDay);
+                endMonthAmount += budget.overlappingAmount(periodStartDay, periodEndDay);
             }
             // middle
             List<Budget> middleBudgets = getBudgets(start, end);
@@ -67,18 +67,12 @@ public class Accounting {
                 LocalDate periodStartDay = budget.firstDay();
                 LocalDate periodEndDay = budget.lastDay();
 
-                middleMonthAmount += overlappingAmount(budget, periodStartDay, periodEndDay);
+                middleMonthAmount += budget.overlappingAmount(periodStartDay, periodEndDay);
             }
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
 
-    }
-
-    private double overlappingAmount(Budget budget, LocalDate periodStartDay, LocalDate periodEndDay) {
-        Period period = new Period(periodStartDay, periodEndDay);
-        double diff = period.getDays();
-        return diff * budget.getDailyAmount();
     }
 
     private List<Budget> getBudgets(LocalDate start, LocalDate end) {
