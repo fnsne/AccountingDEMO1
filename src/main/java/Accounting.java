@@ -25,9 +25,7 @@ public class Accounting {
             }
             return sum;
         } else {
-            double startMonthAmount = 0;
-            double endMonthAmount = 0;
-            double middleMonthAmount = 0;
+            double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
                 //firstMonth
                 if (InSameMonth(start, budget.firstDay())) {
@@ -35,7 +33,7 @@ public class Accounting {
                     LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
                     double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                    startMonthAmount += budgetAmount;
+                    sum += budgetAmount;
                 }
                 //last month
                 if (InSameMonth(end, budget.firstDay())) {
@@ -43,7 +41,7 @@ public class Accounting {
                     LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
                     double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                    endMonthAmount += budgetAmount;
+                    sum += budgetAmount;
                 }
                 // middle
                 if (!InSameMonth(start, budget.firstDay()) && !InSameMonth(end, budget.firstDay())) {
@@ -51,10 +49,10 @@ public class Accounting {
                     LocalDate periodEndDay = budget.lastDay();
 
                     double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                    middleMonthAmount += budgetAmount;
+                    sum += budgetAmount;
                 }
             }
-            return startMonthAmount + endMonthAmount + middleMonthAmount;
+            return sum;
         }
 
     }
