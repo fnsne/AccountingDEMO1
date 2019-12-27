@@ -16,7 +16,10 @@ public class Accounting {
         if (InSameMonth(start, end)) {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
-                Period period = new Period(start, end);
+                LocalDate periodStartDay = start;
+                LocalDate periodEndDay = end;
+
+                Period period = new Period(periodStartDay, periodEndDay);
                 double diff = period.getDays();
                 double budgetAmount = diff * budget.getDailyAmount();
                 sum += budgetAmount;
@@ -70,9 +73,9 @@ public class Accounting {
 
             double middleMonthAmount = 0;
             for (Budget budget : middleBudgets) {
-                YearMonth yearMonth = budget.getYearMonth();
-                LocalDate budgetStartDay = LocalDate.of(yearMonth.getYear(), yearMonth.getMonth(), 1);
-                LocalDate budgetEndDay = LocalDate.of(yearMonth.getYear(), yearMonth.getMonth(), yearMonth.lengthOfMonth());
+                LocalDate budgetStartDay = budget.firstDay();
+                LocalDate budgetEndDay = budget.lastDay();
+
                 Period period = new Period(budgetStartDay, budgetEndDay);
                 double diff = period.getDays();
                 double budgetAmount = diff * budget.getDailyAmount();
