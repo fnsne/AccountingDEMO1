@@ -19,9 +19,7 @@ public class Accounting {
                 LocalDate periodStartDay = start;
                 LocalDate periodEndDay = end;
 
-                Period period = new Period(periodStartDay, periodEndDay);
-                double diff = period.getDays();
-                double budgetAmount = diff * budget.getDailyAmount();
+                double budgetAmount = overlappingAmount(budget, periodStartDay, periodEndDay);
                 sum += budgetAmount;
             }
             return sum;
@@ -41,9 +39,7 @@ public class Accounting {
                 LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
                 LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
-                Period period = new Period(periodStartDay, periodEndDay);
-                double diff = period.getDays();
-                double budgetAmount = diff * budget.getDailyAmount();
+                double budgetAmount = overlappingAmount(budget, periodStartDay, periodEndDay);
                 startMonthAmount += budgetAmount;
             }
 
@@ -61,9 +57,7 @@ public class Accounting {
                 LocalDate periodStartDay = budget.firstDay();
                 LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
-                Period period = new Period(periodStartDay, periodEndDay);
-                double diff = period.getDays();
-                double budgetAmount = diff * budget.getDailyAmount();
+                double budgetAmount = overlappingAmount(budget, periodStartDay, periodEndDay);
                 endMonthAmount += budgetAmount;
             }
             // middle
@@ -76,15 +70,19 @@ public class Accounting {
                 LocalDate budgetStartDay = budget.firstDay();
                 LocalDate budgetEndDay = budget.lastDay();
 
-                Period period = new Period(budgetStartDay, budgetEndDay);
-                double diff = period.getDays();
-                double budgetAmount = diff * budget.getDailyAmount();
+                double budgetAmount = overlappingAmount(budget, budgetStartDay, budgetEndDay);
                 middleMonthAmount += budgetAmount;
             }
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
         }
 
+    }
+
+    private double overlappingAmount(Budget budget, LocalDate periodStartDay, LocalDate periodEndDay) {
+        Period period = new Period(periodStartDay, periodEndDay);
+        double diff = period.getDays();
+        return diff * budget.getDailyAmount();
     }
 
     private List<Budget> getBudgets(LocalDate start, LocalDate end) {
