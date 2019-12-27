@@ -13,24 +13,15 @@ public class Accounting {
     }
 
     public double QueryBudget(LocalDate start, LocalDate end) {
-        if (InSameMonth(start, end)) {
-            double sum = 0;
-            for (Budget budget : getBudgets(start, end)) {
-                double budgetAmount = budget.budgetAmountOfPeriod(new Period(start, end));
-                sum += budgetAmount;
-            }
-            return sum;
-        } else {
-            double sum = 0;
-            for (Budget budget : getBudgets(start, end)) {
-                Period period1 = new Period(start, end);
-                Period period2 = budget.createPeriod();
-                Period period = overlappingPeriod(period1, period2);
-                double budgetAmount = budget.budgetAmountOfPeriod(period);
-                sum += budgetAmount;
-            }
-            return sum;
+        double sum = 0;
+        for (Budget budget : getBudgets(start, end)) {
+            Period period1 = new Period(start, end);
+            Period period2 = budget.createPeriod();
+            Period period = overlappingPeriod(period1, period2);
+            double budgetAmount = budget.budgetAmountOfPeriod(period);
+            sum += budgetAmount;
         }
+        return sum;
 
     }
 
