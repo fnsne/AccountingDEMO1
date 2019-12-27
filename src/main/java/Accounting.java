@@ -14,18 +14,13 @@ public class Accounting {
 
     public double QueryBudget(LocalDate start, LocalDate end) {
         double sum = 0;
-        List<Budget> totalBudgets = new ArrayList<>();
-        for (Budget budget1 : db.GetAll()) {
-            if ((budget1.getYearMonth().equals(YearMonth.from(start)) || budget1.getYearMonth().isAfter(YearMonth.from(start)))
+        for (Budget budget : db.GetAll()) {
+            if ((budget.getYearMonth().equals(YearMonth.from(start)) || budget.getYearMonth().isAfter(YearMonth.from(start)))
                     &&
-                    (budget1.getYearMonth().equals(YearMonth.from(end)) || budget1.getYearMonth().isBefore(YearMonth.from(end)))) {
-                totalBudgets.add(budget1);
+                    (budget.getYearMonth().equals(YearMonth.from(end)) || budget.getYearMonth().isBefore(YearMonth.from(end)))) {
+                double budgetAmount = overlappingAmount(start, end, budget);
+                sum += budgetAmount;
             }
-        }
-        List<Budget> budgets = totalBudgets;
-        for (Budget budget : budgets) {
-            double budgetAmount = overlappingAmount(start, end, budget);
-            sum += budgetAmount;
         }
         return sum;
 
