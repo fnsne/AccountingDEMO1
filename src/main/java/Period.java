@@ -23,6 +23,7 @@ public class Period {
         if (getStart().isAfter(period.getEnd()) || getEnd().isBefore(period.getStart())) {
             return 0;
         } else {
+
             LocalDate periodStartDay = getStart().isAfter(period.getStart())
                     ? getStart()
                     : period.getStart();
