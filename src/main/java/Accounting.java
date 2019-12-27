@@ -13,7 +13,9 @@ public class Accounting {
         double sum = 0;
         for (Budget budget : db.GetAll()) {
             double budgetAmount = 0;
+            double diff = 0;
             if (start.isAfter(budget.lastDay()) || end.isBefore(budget.firstDay())) {
+                diff = 0;
             } else {
                 Period period1 = new Period(start, end);
                 Period period2 = budget.createPeriod();
@@ -22,9 +24,9 @@ public class Accounting {
                 periodStartDay = period1.getStart().isAfter(period2.getStart()) ? period1.getStart() : period2.getStart();
                 periodEndDay = period1.getEnd().isBefore(period2.getEnd()) ? period1.getEnd() : period2.getEnd();
                 Period period = new Period(periodStartDay, periodEndDay);
-                double diff = period.getDays();
-                budgetAmount = diff * budget.getDailyAmount();
+                diff = period.getDays();
             }
+            budgetAmount = diff * budget.getDailyAmount();
             sum += budgetAmount;
         }
         return sum;
