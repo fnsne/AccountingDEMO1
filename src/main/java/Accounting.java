@@ -49,11 +49,9 @@ public class Accounting {
                 }
             }
             // middle
-            YearMonth startYM = YearMonth.from(start);
-            YearMonth endYM = YearMonth.from(end);
             double middleMonthAmount = 0;
             for (Budget budget : getBudgets(start, end)) {
-                if (budget.getYearMonth().isAfter(startYM) && budget.getYearMonth().isBefore(endYM)) {
+                if (!InSameMonth(start, budget.firstDay()) && !InSameMonth(end, budget.firstDay())) {
                     LocalDate periodStartDay = budget.firstDay();
                     LocalDate periodEndDay = budget.lastDay();
 
