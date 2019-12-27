@@ -27,24 +27,22 @@ public class Accounting {
         } else {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
-                //firstMonth
                 if (InSameMonth(start, budget.firstDay())) {
+                    //firstMonth
                     LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
                     LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
                     double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
                     sum += budgetAmount;
-                }
-                //last month
-                if (InSameMonth(end, budget.firstDay())) {
+                } else if (InSameMonth(end, budget.firstDay())) {
+                    //last month
                     LocalDate periodStartDay = budget.firstDay();
                     LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
                     double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
                     sum += budgetAmount;
-                }
-                // middle
-                if (!InSameMonth(start, budget.firstDay()) && !InSameMonth(end, budget.firstDay())) {
+                } else {
+                    // middle
                     LocalDate periodStartDay = budget.firstDay();
                     LocalDate periodEndDay = budget.lastDay();
 
