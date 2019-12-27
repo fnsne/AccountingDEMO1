@@ -26,24 +26,29 @@ public class Accounting {
         } else {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
-                LocalDate periodStartDay;
-                LocalDate periodEndDay;
-                if (InSameMonth(start, budget.firstDay())) {
-                    periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
-                    periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
-                } else if (InSameMonth(end, budget.firstDay())) {
-                    periodStartDay = budget.firstDay();
-                    periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
-                } else {
-                    periodStartDay = budget.firstDay();
-                    periodEndDay = budget.lastDay();
-                }
-                double budgetAmount = budget.budgetAmountOfPeriod(new Period(periodStartDay, periodEndDay));
+                Period period = getOverlappingPeriod(start, end, budget);
+                double budgetAmount = budget.budgetAmountOfPeriod(period);
                 sum += budgetAmount;
             }
             return sum;
         }
 
+    }
+
+    private Period getOverlappingPeriod(LocalDate start, LocalDate end, Budget budget) {
+        LocalDate periodStartDay;
+        LocalDate periodEndDay;
+        if (InSameMonth(start, budget.firstDay())) {
+            periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
+            periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
+        } else if (InSameMonth(end, budget.firstDay())) {
+            periodStartDay = budget.firstDay();
+            periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
+        } else {
+            periodStartDay = budget.firstDay();
+            periodEndDay = budget.lastDay();
+        }
+        return new Period(periodStartDay, periodEndDay);
     }
 
     private List<Budget> getBudgets(LocalDate start, LocalDate end) {
