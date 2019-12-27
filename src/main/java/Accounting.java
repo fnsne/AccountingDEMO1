@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class Accounting {
                 LocalDate periodStartDay = start;
                 LocalDate periodEndDay = end;
 
-                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
+                double budgetAmount = budget.budgetAmountOfPeriod(new Period(periodStartDay, periodEndDay));
                 sum += budgetAmount;
             }
             return sum;
@@ -40,7 +39,7 @@ public class Accounting {
                     periodEndDay = budget.lastDay();
 
                 }
-                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
+                double budgetAmount = budget.budgetAmountOfPeriod(new Period(periodStartDay, periodEndDay));
                 sum += budgetAmount;
             }
             return sum;
