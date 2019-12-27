@@ -20,7 +20,8 @@ public class Accounting {
                 LocalDate periodEndDay = end;
 
                 double diff = new Period(periodStartDay, periodEndDay).getDays();
-                sum += diff * budget.getDailyAmount();
+                double budgetAmount = diff * budget.getDailyAmount();
+                sum += budgetAmount;
             }
             return sum;
         } else {
@@ -40,7 +41,8 @@ public class Accounting {
                 LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
                 double diff = new Period(periodStartDay, periodEndDay).getDays();
-                startMonthAmount += diff * budget.getDailyAmount();
+                double budgetAmount = diff * budget.getDailyAmount();
+                startMonthAmount += budgetAmount;
             }
 
             //last month
@@ -58,7 +60,8 @@ public class Accounting {
                 LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
 
                 double diff = new Period(periodStartDay, periodEndDay).getDays();
-                endMonthAmount += diff * budget.getDailyAmount();
+                double budgetAmount = diff * budget.getDailyAmount();
+                endMonthAmount += budgetAmount;
             }
             // middle
             List<Budget> middleBudgets = getBudgets(start, end);
@@ -71,7 +74,8 @@ public class Accounting {
                 LocalDate periodEndDay = budget.lastDay();
 
                 double diff = new Period(periodStartDay, periodEndDay).getDays();
-                middleMonthAmount += diff * budget.getDailyAmount();
+                double budgetAmount = diff * budget.getDailyAmount();
+                middleMonthAmount += budgetAmount;
             }
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
