@@ -26,22 +26,19 @@ public class Accounting {
             return sum;
         } else {
             //firstMonth
+            double startMonthAmount = 0;
             List<Budget> getFirstMonthBudget = new ArrayList<>();
             for (Budget budget : getBudgets(start, end)) {
                 YearMonth d1 = budget.getYearMonth();
                 YearMonth startYM1 = YearMonth.from(start);
                 if (startYM1.equals(d1)) {
                     getFirstMonthBudget.add(budget);
+                    LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
+                    LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
+
+                    double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
+                    startMonthAmount += budgetAmount;
                 }
-            }
-
-            double startMonthAmount = 0;
-            for (Budget budget : getFirstMonthBudget) {
-                LocalDate periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
-                LocalDate periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
-
-                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                startMonthAmount += budgetAmount;
             }
 
             //last month
