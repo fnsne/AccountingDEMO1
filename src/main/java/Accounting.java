@@ -25,9 +25,9 @@ public class Accounting {
             return sum;
         } else {
             double sum = 0;
-            LocalDate periodStartDay;
-            LocalDate periodEndDay;
             for (Budget budget : getBudgets(start, end)) {
+                LocalDate periodStartDay;
+                LocalDate periodEndDay;
                 if (InSameMonth(start, budget.firstDay())) {
                     periodStartDay = start.isAfter(budget.firstDay()) ? start : budget.firstDay();
                     periodEndDay = end.isBefore(budget.lastDay()) ? end : budget.lastDay();
@@ -37,7 +37,6 @@ public class Accounting {
                 } else {
                     periodStartDay = budget.firstDay();
                     periodEndDay = budget.lastDay();
-
                 }
                 double budgetAmount = budget.budgetAmountOfPeriod(new Period(periodStartDay, periodEndDay));
                 sum += budgetAmount;
