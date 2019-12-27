@@ -29,14 +29,14 @@ public class Period {
         if (getStart().isAfter(budget.lastDay()) || getEnd().isBefore(budget.firstDay())) {
             diff = 0;
         } else {
-            LocalDate periodStartDay;
-            LocalDate periodEndDay;
-            periodStartDay = getStart().isAfter(budget.createPeriod().getStart())
+            LocalDate periodStartDay = getStart().isAfter(budget.createPeriod().getStart())
                     ? getStart()
                     : budget.createPeriod().getStart();
-            periodEndDay = getEnd().isBefore(budget.createPeriod().getEnd())
+
+            LocalDate periodEndDay = getEnd().isBefore(budget.createPeriod().getEnd())
                     ? getEnd()
                     : budget.createPeriod().getEnd();
+
             diff = new Period(periodStartDay, periodEndDay).getDays();
         }
         return diff;
