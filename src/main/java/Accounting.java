@@ -12,10 +12,8 @@ public class Accounting {
     public double QueryBudget(LocalDate start, LocalDate end) {
         double sum = 0;
         for (Budget budget : db.GetAll()) {
-            double budgetAmount = 0;
-            double diff = 0;
-            diff = overlappingDays(start, end, budget);
-            budgetAmount = diff * budget.getDailyAmount();
+            double diff = overlappingDays(start, end, budget);
+            double budgetAmount = diff * budget.getDailyAmount();
             sum += budgetAmount;
         }
         return sum;
