@@ -7,7 +7,6 @@ public class Period {
     private final LocalDate end;
 
     public Period(LocalDate start, LocalDate end) {
-
         this.start = start;
         this.end = end;
     }

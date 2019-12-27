@@ -16,18 +16,6 @@ public class Budget {
         return YearMonth.parse(yearMonth, formatter);
     }
 
-    public void setYearMonth(String yearMonth) {
-        this.yearMonth = yearMonth;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
     public double getDailyAmount() {
         return (double) amount / getYearMonth().lengthOfMonth();
     }

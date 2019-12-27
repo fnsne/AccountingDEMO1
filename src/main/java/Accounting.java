@@ -1,8 +1,6 @@
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class Accounting {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
     private IBudgetRepo db;
 
     public Accounting(IBudgetRepo db) {
@@ -17,11 +15,6 @@ public class Accounting {
             sum += budgetAmount;
         }
         return sum;
-
-    }
-
-    private boolean InSameMonth(LocalDate start, LocalDate end) {
-        return start.getYear() == end.getYear() && start.getMonth() == end.getMonth();
     }
 
 }
