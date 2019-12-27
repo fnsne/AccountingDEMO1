@@ -26,7 +26,7 @@ public class Accounting {
         } else {
             double sum = 0;
             for (Budget budget : getBudgets(start, end)) {
-                Period period = getOverlappingPeriod(start, end, budget);
+                Period period = getOverlappingPeriod(budget, new Period(start, end));
                 double budgetAmount = budget.budgetAmountOfPeriod(period);
                 sum += budgetAmount;
             }
@@ -35,8 +35,7 @@ public class Accounting {
 
     }
 
-    private Period getOverlappingPeriod(LocalDate start, LocalDate end, Budget budget) {
-        Period period = new Period(start, end);
+    private Period getOverlappingPeriod(Budget budget, Period period) {
         LocalDate start1 = period.getStart();
         LocalDate end1 = period.getEnd();
         LocalDate periodStartDay;
