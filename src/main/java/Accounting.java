@@ -9,7 +9,7 @@ public class Accounting {
 
     public double QueryBudget(LocalDate start, LocalDate end) {
         return db.GetAll().stream()
-                .mapToDouble(budget -> budget.intervalAmount(start, end))
+                .mapToDouble(budget -> budget.intervalAmount(new Period(start, end)))
                 .sum();
     }
 
