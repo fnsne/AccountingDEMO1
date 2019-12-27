@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -61,9 +62,14 @@ public class Accounting {
                 endMonthAmount += budgetAmount;
             }
             // middle
-            List<Budget> middleBudgets = getBudgets(start, end);
-            middleBudgets.removeAll(getFirstMonthBudget);
-            middleBudgets.removeAll(getLastMonthBudget);
+            List<Budget> middleBudgets = new ArrayList<>();
+            YearMonth startYM = YearMonth.from(start);
+            YearMonth endYM = YearMonth.from(end);
+            for (Budget budget : getBudgets(start, end)) {
+                if (budget.getYearMonth().isAfter(startYM) && budget.getYearMonth().isBefore(endYM)) {
+                    middleBudgets.add(budget);
+                }
+            }
 
             double middleMonthAmount = 0;
             for (Budget budget : middleBudgets) {
