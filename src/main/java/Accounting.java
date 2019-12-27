@@ -15,11 +15,12 @@ public class Accounting {
     public double QueryBudget(LocalDate start, LocalDate end) {
         double sum = 0;
         for (Budget budget : db.GetAll()) {
+            double budgetAmount = 0;
             if (start.isAfter(budget.lastDay()) || end.isBefore(budget.firstDay())) {
             } else {
-                double budgetAmount = overlappingAmount(start, end, budget);
-                sum += budgetAmount;
+                budgetAmount = overlappingAmount(start, end, budget);
             }
+            sum += budgetAmount;
         }
         return sum;
 
