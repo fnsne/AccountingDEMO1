@@ -49,22 +49,17 @@ public class Accounting {
                 }
             }
             // middle
-            List<Budget> middleBudgets = new ArrayList<>();
             YearMonth startYM = YearMonth.from(start);
             YearMonth endYM = YearMonth.from(end);
+            double middleMonthAmount = 0;
             for (Budget budget : getBudgets(start, end)) {
                 if (budget.getYearMonth().isAfter(startYM) && budget.getYearMonth().isBefore(endYM)) {
-                    middleBudgets.add(budget);
+                    LocalDate periodStartDay = budget.firstDay();
+                    LocalDate periodEndDay = budget.lastDay();
+
+                    double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
+                    middleMonthAmount += budgetAmount;
                 }
-            }
-
-            double middleMonthAmount = 0;
-            for (Budget budget : middleBudgets) {
-                LocalDate periodStartDay = budget.firstDay();
-                LocalDate periodEndDay = budget.lastDay();
-
-                double budgetAmount = budget.overlappingAmount(new Period(periodStartDay, periodEndDay));
-                middleMonthAmount += budgetAmount;
             }
 
             return startMonthAmount + endMonthAmount + middleMonthAmount;
