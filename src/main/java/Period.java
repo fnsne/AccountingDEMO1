@@ -19,17 +19,17 @@ public class Period {
         return this.end;
     }
 
-    public double overlappingDays(Budget budget) {
-        if (getStart().isAfter(budget.lastDay()) || getEnd().isBefore(budget.firstDay())) {
+    public double overlappingDays(Period period) {
+        if (getStart().isAfter(period.getEnd()) || getEnd().isBefore(period.getStart())) {
             return 0;
         } else {
-            LocalDate periodStartDay = getStart().isAfter(budget.createPeriod().getStart())
+            LocalDate periodStartDay = getStart().isAfter(period.getStart())
                     ? getStart()
-                    : budget.createPeriod().getStart();
+                    : period.getStart();
 
-            LocalDate periodEndDay = getEnd().isBefore(budget.createPeriod().getEnd())
+            LocalDate periodEndDay = getEnd().isBefore(period.getEnd())
                     ? getEnd()
-                    : budget.createPeriod().getEnd();
+                    : period.getEnd();
 
             return DAYS.between(periodStartDay, periodEndDay) + 1;
         }

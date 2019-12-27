@@ -33,6 +33,6 @@ public class Budget {
     }
 
     public double intervalAmount(Period period) {
-        return period.overlappingDays(this) * getDailyAmount();
+        return period.overlappingDays(this.createPeriod()) * getDailyAmount();
     }
 }
