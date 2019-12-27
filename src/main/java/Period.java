@@ -12,10 +12,6 @@ public class Period {
         this.end = end;
     }
 
-    public long getDays() {
-        return DAYS.between(start, end) + 1;
-    }
-
     public LocalDate getStart() {
         return this.start;
     }
@@ -36,7 +32,7 @@ public class Period {
                     ? getEnd()
                     : budget.createPeriod().getEnd();
 
-            return new Period(periodStartDay, periodEndDay).getDays();
+            return DAYS.between(periodStartDay, periodEndDay) + 1;
         }
     }
 }
