@@ -15,16 +15,16 @@ public class Accounting {
     public double QueryBudget(LocalDate start, LocalDate end) {
         double sum = 0;
         for (Budget budget : getBudgets(start, end)) {
-            Period period1 = new Period(start, end);
-            Period period2 = budget.createPeriod();
-            double budgetAmount = overlappingAmount(budget, period1, period2);
+            double budgetAmount = overlappingAmount(start, end, budget);
             sum += budgetAmount;
         }
         return sum;
 
     }
 
-    private double overlappingAmount(Budget budget, Period period1, Period period2) {
+    private double overlappingAmount(LocalDate start, LocalDate end, Budget budget) {
+        Period period1 = new Period(start, end);
+        Period period2 = budget.createPeriod();
         Period period = overlappingPeriod(period1, period2);
         return budget.budgetAmountOfPeriod(period);
     }
