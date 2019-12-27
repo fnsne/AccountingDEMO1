@@ -31,4 +31,12 @@ public class Budget {
     public double getDailyAmount() {
         return (double) amount / getYearMonth().lengthOfMonth();
     }
+
+    public LocalDate getBudgetFirstDay() {
+        return LocalDate.of(getYearMonth().getYear(), getYearMonth().getMonth(), 1);
+    }
+
+    public LocalDate getBudgetLastDay() {
+        return LocalDate.of(getYearMonth().getYear(), getYearMonth().getMonth(), getYearMonth().lengthOfMonth());
+    }
 }
