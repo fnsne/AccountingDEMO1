@@ -38,15 +38,16 @@ public class Accounting {
     private Period getOverlappingPeriod(Budget budget, Period period) {
         LocalDate periodStartDay;
         LocalDate periodEndDay;
-        if (InSameMonth(period.getStart(), budget.firstDay())) {
-            periodStartDay = period.getStart().isAfter(budget.firstDay()) ? period.getStart() : budget.firstDay();
-            periodEndDay = period.getEnd().isBefore(budget.lastDay()) ? period.getEnd() : budget.lastDay();
-        } else if (InSameMonth(period.getEnd(), budget.firstDay())) {
-            periodStartDay = budget.firstDay();
-            periodEndDay = period.getEnd().isBefore(budget.lastDay()) ? period.getEnd() : budget.lastDay();
+        Period period1 = new Period(budget.firstDay(), budget.lastDay());
+        if (InSameMonth(period.getStart(), period1.getStart())) {
+            periodStartDay = period.getStart().isAfter(period1.getStart()) ? period.getStart() : period1.getStart();
+            periodEndDay = period.getEnd().isBefore(period1.getEnd()) ? period.getEnd() : period1.getEnd();
+        } else if (InSameMonth(period.getEnd(), period1.getStart())) {
+            periodStartDay = period1.getStart();
+            periodEndDay = period.getEnd().isBefore(period1.getEnd()) ? period.getEnd() : period1.getEnd();
         } else {
-            periodStartDay = budget.firstDay();
-            periodEndDay = budget.lastDay();
+            periodStartDay = period1.getStart();
+            periodEndDay = period1.getEnd();
         }
         return new Period(periodStartDay, periodEndDay);
     }
